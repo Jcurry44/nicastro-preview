@@ -536,7 +536,7 @@
       content: "";
       position: absolute;
       right: -0.05em;
-      bottom: 0.09em;
+      bottom: -0.035em;
       left: 0.03em;
       height: 0.055em;
       transform: scaleX(0);
@@ -1800,6 +1800,54 @@
       color: rgba(242, 240, 233, 0.8);
     }
 
+    .office-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2.4rem;
+    }
+
+    .office-photos figure {
+      position: relative;
+      margin: 0;
+      border: 1px solid rgba(242, 240, 233, 0.24);
+      background: rgba(251, 250, 246, 0.05);
+      padding: 8px;
+    }
+
+    .office-photos figure::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      width: 14px;
+      height: 14px;
+      border-top: 2px solid var(--signal-soft);
+      border-right: 2px solid var(--signal-soft);
+    }
+
+    .office-photos img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: saturate(0.94);
+    }
+
+    .office-photos figcaption {
+      padding: 0.6rem 2px 0.1rem;
+      color: rgba(242, 240, 233, 0.62);
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 600px) {
+      .office-photos {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .contact-form {
       border-top: 2px solid var(--paper);
       padding-top: 1.4rem;
@@ -2002,6 +2050,50 @@
 
       .nav__phone {
         display: none;
+      }
+
+      .nav__links {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        display: grid;
+        transform: translateY(-8px);
+        visibility: hidden;
+        gap: 0;
+        border-bottom: 1px solid var(--rule);
+        background: var(--chalk);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+      }
+
+      .site-header.menu-open .nav__links {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav__actions {
+        justify-content: flex-end;
+      }
+
+      .nav__links a {
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid var(--rule);
+        padding: 0 20px;
+      }
+
+      .nav__links a::after {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        justify-self: end;
       }
 
       .hero__layout {
@@ -2743,7 +2835,7 @@
           </div>
           <div class="proof">
             <span class="proof__label">Local presence</span>
-            <strong>North Tonawanda office</strong>
+            <a href="https://maps.google.com/?q=908+Niagara+Falls+Blvd,+North+Tonawanda,+NY+14120" target="_blank" rel="noreferrer">908 Niagara Falls Blvd · North Tonawanda</a>
           </div>
           <div class="proof">
             <span class="proof__label">Year-round support</span>
@@ -2998,6 +3090,17 @@
               <small>Office</small>
               <span>908 Niagara Falls Blvd Ste 104<br />North Tonawanda, NY 14120</span>
             </address>
+          </div>
+
+          <div class="office-photos" data-office-photos hidden>
+            <figure>
+              <img src="assets/wurlitzer.jpg" alt="The historic Wurlitzer Building at 908 Niagara Falls Boulevard" loading="lazy" data-office-img />
+              <figcaption>The historic Wurlitzer Building</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/office-front.jpg" alt="The Nicastro Accounting street-level office window" loading="lazy" data-office-img />
+              <figcaption>Street level · look for the window</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -3675,6 +3778,21 @@
         status.textContent = "Opening your email app…";
         window.location.href = "mailto:admin@nicacct.com?subject=" + subject + "&body=" + body;
       });
+
+      (function initOfficePhotos() {
+        var block = document.querySelector("[data-office-photos]");
+        if (!block) return;
+        var imgs = Array.prototype.slice.call(block.querySelectorAll("[data-office-img]"));
+        imgs.forEach(function (img) {
+          var probe = new Image();
+          probe.onload = function () { block.hidden = false; };
+          probe.onerror = function () {
+            var fig = img.closest("figure");
+            if (fig) fig.remove();
+          };
+          probe.src = img.getAttribute("src");
+        });
+      })();
 
       document.querySelector("[data-year]").textContent = String(new Date().getFullYear());
     })();
