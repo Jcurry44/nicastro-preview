@@ -1217,7 +1217,7 @@
       padding: 1.7rem 2rem 1.8rem 0;
     }
 
-    .standard-note + .standard-note {
+    .standard-note:not(.standard-note--lead) + .standard-note {
       border-left: 1px solid var(--rule-dark);
       padding-left: 2rem;
     }
@@ -1816,6 +1816,10 @@
       margin-top: 2.4rem;
     }
 
+    .office-photos[hidden] {
+      display: none;
+    }
+
     .office-photos figure {
       position: relative;
       margin: 0;
@@ -1851,11 +1855,6 @@
       text-transform: uppercase;
     }
 
-    @media (max-width: 600px) {
-      .office-photos {
-        grid-template-columns: 1fr;
-      }
-    }
 
     .contact-form {
       border-top: 2px solid var(--paper);
@@ -1919,7 +1918,7 @@
       background: transparent;
       color: var(--paper);
       padding: 0.35rem 0 0.85rem;
-      font-size: 0.91rem;
+      font-size: 1rem;
       transition: border-color 180ms ease, background 180ms ease;
     }
 
@@ -2053,6 +2052,13 @@
       background: var(--signal);
     }
 
+    .nav__portal,
+    .m-rail-meta,
+    .m-rail-progress,
+    .standard-note--lead {
+      display: none;
+    }
+
     [data-reveal] {
       opacity: 0;
       transform: translateY(20px);
@@ -2098,6 +2104,20 @@
 
       .nav__actions {
         justify-content: flex-end;
+      }
+
+      .nav__portal {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        border: 1px solid var(--rule);
+        padding: 0 0.7rem;
+        color: var(--navy);
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
       }
 
       .nav__links a {
@@ -2266,7 +2286,7 @@
         padding: 1.5rem 0;
       }
 
-      .standard-note + .standard-note {
+      .standard-note:not(.standard-note--lead) + .standard-note {
         border-top: 1px solid var(--rule-dark);
         border-left: 0;
         padding-left: 0;
@@ -2742,6 +2762,489 @@
         animation: none;
       }
     }
+
+    /* ============ mobile compression pass (owners: "too much scrolling") ============
+       Last block on purpose: must win the cascade over the earlier 600/880 rules. */
+    @media (max-width: 600px) {
+      .section,
+      .prep {
+        padding: 3.25rem 0;
+      }
+
+      .section h2,
+      .standard h2,
+      .contact h2 {
+        font-size: clamp(2.9rem, 13vw, 4.2rem);
+      }
+
+      .prep h2 {
+        font-size: clamp(2.6rem, 11vw, 3.6rem);
+      }
+
+      .section-lead {
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      /* --- hero --- */
+      .hero__layout {
+        gap: 2rem;
+        padding: 2.4rem 0 1.8rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 17vw, 5rem);
+      }
+
+      .hero h1 .line {
+        padding-bottom: 0.06em;
+      }
+
+      .hero__lead {
+        margin-top: 1.4rem;
+      }
+
+      .hero__actions {
+        gap: 0.45rem;
+        margin-top: 1.6rem;
+      }
+
+      .hero__actions .button--line {
+        min-height: 44px;
+        justify-content: flex-start;
+        border: 0;
+        background: transparent;
+        padding: 0.4rem 0;
+        color: var(--navy);
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero__actions .button--line::before {
+        display: none;
+      }
+
+      .hero__actions .button--line svg {
+        stroke: var(--signal);
+      }
+
+      .hero__micro {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.2rem;
+        margin-top: 1.2rem;
+      }
+
+      .ledger-art {
+        max-width: 320px;
+      }
+
+      .ledger-live__row {
+        min-height: 40px;
+      }
+
+      .hero__proof {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1.4rem;
+        padding: 0.9rem 0;
+        border-top: 1px solid var(--rule);
+      }
+
+      .proof {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 0;
+        padding: 0;
+      }
+
+      .proof a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+
+      .proof + .proof {
+        border: 0;
+        padding: 0;
+      }
+
+      .proof__label {
+        display: inline;
+        margin: 0;
+        font-size: 0.55rem;
+        white-space: nowrap;
+      }
+
+      .proof strong,
+      .proof a {
+        font-size: 0.84rem;
+      }
+
+      /* --- services --- */
+      .service-row summary {
+        min-height: 80px;
+        scroll-margin-top: calc(var(--header-height) + 0.5rem);
+      }
+
+      .service-row__heading strong {
+        font-size: 1.5rem;
+      }
+
+      /* --- radar --- */
+      .radar__inner {
+        padding: 0.9rem 0;
+      }
+
+      .radar__title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: normal;
+      }
+
+      /* --- standard + process: swipe rails --- */
+      .standard__aside {
+        display: none;
+      }
+
+      .standard-note--lead {
+        display: block;
+      }
+
+      .m-rail-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        margin: 2rem 0 0.7rem;
+        color: #ff5b73;
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
+      }
+
+      .m-rail-ticks {
+        display: inline-flex;
+        gap: 4px;
+        margin-left: 0.8rem;
+      }
+
+      .m-rail-ticks span {
+        width: 10px;
+        height: 2px;
+        background: rgba(255, 91, 115, 0.7);
+      }
+
+      .m-rail-ticks span.is-now {
+        height: 4px;
+        background: #ff5b73;
+      }
+
+      .standard__notes,
+      .process__rail {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: min(78vw, 300px);
+        grid-template-columns: none;
+        gap: 12px;
+        margin-top: 0;
+        margin-inline: -13px;
+        padding-inline: 13px;
+        padding-top: 0;
+        border: 0;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 13px;
+        scrollbar-width: none;
+      }
+
+      .standard__notes::-webkit-scrollbar,
+      .process__rail::-webkit-scrollbar {
+        display: none;
+      }
+
+      .standard__notes > *,
+      .process__rail > * {
+        scroll-snap-align: start;
+      }
+
+      .standard-note {
+        min-height: 0;
+        border: 0;
+        border-top: 1px solid var(--rule-dark);
+        padding: 1rem 0 0.4rem;
+      }
+
+      .standard-note:not(.standard-note--lead) + .standard-note {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .standard-note h3 {
+        margin-top: 0.5rem;
+        font-size: 1.6rem;
+      }
+
+      .standard-note p {
+        font-size: 0.82rem;
+      }
+
+      .process {
+        margin-top: 2.6rem;
+      }
+
+      .process__head h3 {
+        font-size: 2rem;
+      }
+
+      .process__head p {
+        font-size: 0.82rem;
+      }
+
+      .process__rail {
+        grid-auto-columns: min(66vw, 240px);
+        margin-top: 1.4rem;
+        padding-top: 6px;
+      }
+
+      .process-step {
+        border-top: 1px solid var(--rule-dark);
+        padding: 1rem 0 0.4rem;
+      }
+
+      .m-rail-progress {
+        display: block;
+        height: 2px;
+        margin-top: 2.2rem;
+        background: rgba(242, 240, 233, 0.4);
+      }
+
+      .m-rail-progress span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0.08);
+        transform-origin: left;
+        background: var(--signal);
+        transition: transform 120ms linear;
+      }
+
+      /* --- reviews --- */
+      .rating-rail {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: baseline;
+        column-gap: 0.9rem;
+        row-gap: 0.3rem;
+      }
+
+      .rating-rail .section-index {
+        grid-column: 1 / -1;
+      }
+
+      .rating-rail__score {
+        font-size: clamp(3.2rem, 14vw, 4rem);
+        line-height: 0.9;
+      }
+
+      .rating-rail__stars {
+        margin-top: 0;
+        font-size: 0.72rem;
+      }
+
+      .rating-rail > p {
+        grid-column: 1 / -1;
+        margin-top: 0.3rem;
+      }
+
+      .rating-rail__links {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem 1.5rem;
+        margin-top: 0.4rem;
+      }
+
+      .rating-rail__links .text-link {
+        min-height: 44px;
+        align-items: center;
+      }
+
+      .reviews__layout {
+        gap: 2rem;
+      }
+
+      .review-feature {
+        padding: 0 0 2rem 1rem;
+      }
+
+      .review-feature::before {
+        font-size: 8rem;
+      }
+
+      .review-feature blockquote {
+        font-size: clamp(2.4rem, 12vw, 3.4rem);
+      }
+
+      .review-feature figcaption {
+        margin-top: 1.5rem;
+      }
+
+      .review-support {
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding: 1rem 0;
+      }
+
+      .review-support p {
+        font-size: 1.6rem;
+      }
+
+      /* --- prep / checklist --- */
+      .prep__head {
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .prep-toggles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .ptoggle span {
+        width: 100%;
+        min-height: 46px;
+        align-items: center;
+        padding: 0.5rem 0.7rem;
+        font-size: 0.55rem;
+      }
+
+      .prep-row {
+        min-height: 46px;
+        padding: 0.3rem 0;
+      }
+
+      .prep-actions {
+        gap: 0.8rem;
+      }
+
+      .prep-actions__buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .prep-actions__buttons .button--small {
+        min-height: 46px;
+        padding: 0.5rem 0.5rem;
+        font-size: 0.7rem;
+      }
+
+      .prep-actions__buttons [data-prep-mail] {
+        grid-column: 1 / -1;
+      }
+
+      /* --- contact --- */
+      .contact__layout {
+        gap: 2.5rem;
+      }
+
+      .contact-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        border-top: 0;
+        background: rgba(242, 240, 233, 0.2);
+      }
+
+      .contact-list a,
+      .contact-list address {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+        min-height: 64px;
+        border-bottom: 0;
+        background: var(--navy);
+        padding: 0.6rem 0.7rem;
+        font-size: 0.78rem;
+      }
+
+      .contact-list a::after {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.6rem;
+        font-size: 0.7rem;
+      }
+
+      .contact-list address {
+        grid-column: 1 / -1;
+      }
+
+      .contact-list a:last-of-type {
+        grid-column: 1 / -1;
+      }
+
+      .office-photos {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 1.8rem;
+      }
+
+      .office-photos img {
+        aspect-ratio: 4 / 5;
+      }
+
+      .office-photos figcaption {
+        font-size: 0.5rem;
+        letter-spacing: 0.06em;
+      }
+
+      .contact__lead {
+        margin-top: 1.2rem;
+        font-size: 0.92rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 10px;
+      }
+
+      .field--full {
+        grid-column: 1 / -1;
+      }
+
+      .field textarea {
+        min-height: 96px;
+      }
+
+      .form-note {
+        font-size: 0.65rem;
+      }
+
+      /* --- footer --- */
+      .footer__inner {
+        gap: 0.5rem;
+        padding: 1rem 0;
+      }
+
+      .footer__inner a,
+      .hero__micro a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2769,6 +3272,7 @@
       </div>
 
       <div class="nav__actions">
+        <a class="nav__portal" href="https://nicastro.taxdome.com/" target="_blank" rel="noreferrer">Portal<span aria-hidden="true"> ↗</span></a>
         <a class="nav__phone" href="tel:+17162644438">
           <small>Talk to the office</small>
           716.264.4438
@@ -2876,7 +3380,7 @@
         </div>
 
         <div class="service-ledger" data-reveal>
-          <details class="service-row" open>
+          <details class="service-row" name="services" open>
             <summary>
               <span class="service-row__number">01</span>
               <span class="service-row__heading">
@@ -2897,7 +3401,7 @@
             </div>
           </details>
 
-          <details class="service-row">
+          <details class="service-row" name="services">
             <summary>
               <span class="service-row__number">02</span>
               <span class="service-row__heading">
@@ -2918,7 +3422,7 @@
             </div>
           </details>
 
-          <details class="service-row">
+          <details class="service-row" name="services">
             <summary>
               <span class="service-row__number">03</span>
               <span class="service-row__heading">
@@ -2966,7 +3470,12 @@
           </div>
         </div>
 
-        <div class="standard__notes" data-reveal>
+        <p class="m-rail-meta" data-rail-meta="notes" aria-hidden="true"><span data-rail-now>01</span>&nbsp;/&nbsp;<span data-rail-total>04</span><span class="m-rail-ticks" data-rail-ticks></span></p>
+        <div class="standard__notes" data-reveal role="region" aria-label="The Nicastro standard — four cards, scrolls horizontally on small screens">
+          <article class="standard-note standard-note--lead">
+            <span>00 / THE STANDARD</span>
+            <p>Practical accounting should reduce uncertainty—not create more of it. The process stays direct, organized, and focused on the next useful action.</p>
+          </article>
           <article class="standard-note">
             <span>01 / INTAKE</span>
             <h3>Start with what matters.</h3>
@@ -2989,7 +3498,8 @@
             <h3 id="process-title">From scattered to settled.</h3>
             <p>A simple four-part path keeps documents, deadlines, questions, and follow-through from drifting apart.</p>
           </div>
-          <div class="process__rail" data-process-rail>
+          <div class="m-rail-progress" data-rail-progress aria-hidden="true"><span></span></div>
+          <div class="process__rail" data-process-rail role="region" aria-label="How it works — four steps, scrolls horizontally on small screens">
             <article class="process-step">
               <span>01 / CONSULT</span>
               <h4>Define the need.</h4>
@@ -3198,6 +3708,21 @@
       var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
       var cssScrollProgress = window.CSS && CSS.supports && CSS.supports("animation-timeline: scroll(root)");
+      var mobileMq = window.matchMedia("(max-width: 600px)");
+
+      // Mobile: services start collapsed (runs before first paint — script sits at end of body)
+      if (mobileMq.matches) {
+        document.querySelectorAll(".service-row[open]").forEach(function (row) {
+          row.removeAttribute("open");
+        });
+      }
+      document.querySelectorAll(".service-row").forEach(function (row) {
+        row.addEventListener("toggle", function () {
+          if (row.open && mobileMq.matches) {
+            row.querySelector("summary").scrollIntoView({ block: "nearest" });
+          }
+        });
+      });
 
       function easeOut(p) { return 1 - Math.pow(1 - p, 3); }
 
@@ -3803,6 +4328,83 @@
         status.textContent = "Opening your email app…";
         window.location.href = "mailto:admin@nicacct.com?subject=" + subject + "&body=" + body;
       });
+
+      (function initMobileRails() {
+        var done = false;
+
+        function visibleCards(rail) {
+          return Array.prototype.filter.call(rail.children, function (el) {
+            return el.offsetParent !== null;
+          });
+        }
+
+        function railCounter(rail, meta) {
+          if (!rail || !meta) return;
+          var cards = visibleCards(rail);
+          if (cards.length < 2) return;
+          var now = meta.querySelector("[data-rail-now]");
+          var total = meta.querySelector("[data-rail-total]");
+          var ticksBox = meta.querySelector("[data-rail-ticks]");
+          total.textContent = String(cards.length).padStart(2, "0");
+          var ticks = cards.map(function () {
+            var tick = document.createElement("span");
+            ticksBox.appendChild(tick);
+            return tick;
+          });
+          function update() {
+            var max = rail.scrollWidth - rail.clientWidth;
+            var p = max > 0 ? rail.scrollLeft / max : 0;
+            var index = Math.min(cards.length - 1, Math.max(0, Math.round(p * (cards.length - 1))));
+            now.textContent = String(index + 1).padStart(2, "0");
+            ticks.forEach(function (tick, i) { tick.classList.toggle("is-now", i === index); });
+          }
+          update();
+          rail.addEventListener("scroll", update, { passive: true });
+        }
+
+        function railProgress(rail, box) {
+          if (!rail || !box) return;
+          var bar = box.querySelector("span");
+          if (reducedMotion) {
+            bar.style.transform = "scaleX(1)";
+            return;
+          }
+          function update() {
+            var max = rail.scrollWidth - rail.clientWidth;
+            var p = max > 0 ? rail.scrollLeft / max : 1;
+            bar.style.transform = "scaleX(" + Math.max(0.08, p).toFixed(3) + ")";
+          }
+          update();
+          rail.addEventListener("scroll", update, { passive: true });
+        }
+
+        function setup() {
+          if (done || !mobileMq.matches) return;
+          done = true;
+          railCounter(document.querySelector(".standard__notes"), document.querySelector('[data-rail-meta="notes"]'));
+          railProgress(document.querySelector("[data-process-rail]"), document.querySelector("[data-rail-progress]"));
+        }
+
+        var rails = [document.querySelector(".standard__notes"), document.querySelector("[data-process-rail]")];
+
+        function railTabs() {
+          rails.forEach(function (rail) {
+            if (!rail) return;
+            if (mobileMq.matches) rail.tabIndex = 0;
+            else rail.removeAttribute("tabindex");
+          });
+        }
+
+        function onMqChange() {
+          setup();
+          railTabs();
+        }
+
+        setup();
+        railTabs();
+        if (mobileMq.addEventListener) mobileMq.addEventListener("change", onMqChange);
+        else if (mobileMq.addListener) mobileMq.addListener(onMqChange);
+      })();
 
       (function initOfficePhotos() {
         var block = document.querySelector("[data-office-photos]");
