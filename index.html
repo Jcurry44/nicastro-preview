@@ -4456,11 +4456,30 @@
           seen.observe(rail);
         }
 
+        function renumberCards(rail) {
+          if (!rail) return;
+          visibleCards(rail).forEach(function (card, index) {
+            var label = card.querySelector("span");
+            if (!label) return;
+            if (!label.dataset.origLabel) label.dataset.origLabel = label.textContent;
+            label.textContent = label.dataset.origLabel.replace(/^\d+\s*\//, String(index + 1).padStart(2, "0") + " /");
+          });
+        }
+
+        function restoreCards(rail) {
+          if (!rail) return;
+          Array.prototype.forEach.call(rail.children, function (card) {
+            var label = card.querySelector("span");
+            if (label && label.dataset.origLabel) label.textContent = label.dataset.origLabel;
+          });
+        }
+
         function setup() {
           if (done || !mobileMq.matches) return;
           done = true;
           var notes = document.querySelector(".standard__notes");
           var process = document.querySelector("[data-process-rail]");
+          renumberCards(notes);
           railCounter(notes, document.querySelector('[data-rail-meta="notes"]'));
           railProgress(process, document.querySelector("[data-rail-progress]"));
           armNudge(notes);
@@ -4480,6 +4499,11 @@
         function onMqChange() {
           setup();
           railTabs();
+          var notes = document.querySelector(".standard__notes");
+          if (done) {
+            if (mobileMq.matches) renumberCards(notes);
+            else restoreCards(notes);
+          }
         }
 
         setup();
