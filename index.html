@@ -154,7 +154,7 @@
       font-weight: 800;
     }
 
-    .skip-link:focus {
+    .skip-link:focus-visible {
       transform: translateY(0);
     }
 
@@ -2055,6 +2055,7 @@
     .nav__portal,
     .m-rail-meta,
     .m-rail-progress,
+    .m-rail-progressrow,
     .standard-note--lead {
       display: none;
     }
@@ -2777,6 +2778,14 @@
         font-size: clamp(2.9rem, 13vw, 4.2rem);
       }
 
+      .section h2 em {
+        display: block;
+      }
+
+      .standard::before {
+        display: none;
+      }
+
       .prep h2 {
         font-size: clamp(2.6rem, 11vw, 3.6rem);
       }
@@ -2866,6 +2875,7 @@
       .proof a {
         display: inline-flex;
         align-items: center;
+        gap: 0.3em;
         min-height: 44px;
       }
 
@@ -2947,6 +2957,27 @@
         background: #ff5b73;
       }
 
+      .m-rail-swipe {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3em;
+        margin-left: auto;
+        color: #ff5b73;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .m-rail-swipe::after {
+        content: "▸▸";
+        letter-spacing: -0.08em;
+        animation: swipe-pulse 1.6s ease infinite;
+      }
+
+      @keyframes swipe-pulse {
+        0%, 100% { transform: translateX(0); opacity: 0.65; }
+        50% { transform: translateX(4px); opacity: 1; }
+      }
+
       .standard__notes,
       .process__rail {
         display: grid;
@@ -3020,10 +3051,21 @@
         padding: 1rem 0 0.4rem;
       }
 
+      .m-rail-progressrow {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-top: 2.2rem;
+        color: #ff5b73;
+        font-family: var(--mono);
+        font-size: 0.58rem;
+      }
+
       .m-rail-progress {
         display: block;
+        flex: 1;
         height: 2px;
-        margin-top: 2.2rem;
+        margin-top: 0;
         background: rgba(242, 240, 233, 0.4);
       }
 
@@ -3242,6 +3284,7 @@
       .hero__micro a {
         display: inline-flex;
         align-items: center;
+        gap: 0.3em;
         min-height: 44px;
       }
     }
@@ -3470,7 +3513,7 @@
           </div>
         </div>
 
-        <p class="m-rail-meta" data-rail-meta="notes" aria-hidden="true"><span data-rail-now>01</span>&nbsp;/&nbsp;<span data-rail-total>04</span><span class="m-rail-ticks" data-rail-ticks></span></p>
+        <p class="m-rail-meta" data-rail-meta="notes" aria-hidden="true"><span data-rail-now>01</span>&nbsp;/&nbsp;<span data-rail-total>04</span><span class="m-rail-ticks" data-rail-ticks></span><span class="m-rail-swipe">swipe</span></p>
         <div class="standard__notes" data-reveal role="region" aria-label="The Nicastro standard — four cards, scrolls horizontally on small screens">
           <article class="standard-note standard-note--lead">
             <span>00 / THE STANDARD</span>
@@ -3498,7 +3541,10 @@
             <h3 id="process-title">From scattered to settled.</h3>
             <p>A simple four-part path keeps documents, deadlines, questions, and follow-through from drifting apart.</p>
           </div>
-          <div class="m-rail-progress" data-rail-progress aria-hidden="true"><span></span></div>
+          <div class="m-rail-progressrow" aria-hidden="true">
+            <div class="m-rail-progress" data-rail-progress><span></span></div>
+            <span class="m-rail-swipe">swipe</span>
+          </div>
           <div class="process__rail" data-process-rail role="region" aria-label="How it works — four steps, scrolls horizontally on small screens">
             <article class="process-step">
               <span>01 / CONSULT</span>
@@ -4378,11 +4424,47 @@
           rail.addEventListener("scroll", update, { passive: true });
         }
 
+        function nudgeRail(rail) {
+          if (reducedMotion || !rail || rail.scrollLeft > 2) return;
+          var stopped = false;
+          rail.addEventListener("pointerdown", function () { stopped = true; }, { once: true });
+          var savedSnap = rail.style.scrollSnapType;
+          rail.style.scrollSnapType = "none";
+          var start = null;
+          function finish() {
+            rail.style.scrollSnapType = savedSnap;
+          }
+          function frame(ts) {
+            if (stopped) { finish(); return; }
+            if (start === null) start = ts;
+            var p = Math.min(1, (ts - start) / 850);
+            rail.scrollLeft = 34 * Math.sin(p * Math.PI);
+            if (p < 1) requestAnimationFrame(frame);
+            else finish();
+          }
+          requestAnimationFrame(frame);
+        }
+
+        function armNudge(rail) {
+          if (!rail || reducedMotion || !("IntersectionObserver" in window)) return;
+          var seen = new IntersectionObserver(function (entries, observer) {
+            if (entries[0].isIntersecting) {
+              observer.disconnect();
+              setTimeout(function () { nudgeRail(rail); }, 350);
+            }
+          }, { threshold: 0.5 });
+          seen.observe(rail);
+        }
+
         function setup() {
           if (done || !mobileMq.matches) return;
           done = true;
-          railCounter(document.querySelector(".standard__notes"), document.querySelector('[data-rail-meta="notes"]'));
-          railProgress(document.querySelector("[data-process-rail]"), document.querySelector("[data-rail-progress]"));
+          var notes = document.querySelector(".standard__notes");
+          var process = document.querySelector("[data-process-rail]");
+          railCounter(notes, document.querySelector('[data-rail-meta="notes"]'));
+          railProgress(process, document.querySelector("[data-rail-progress]"));
+          armNudge(notes);
+          armNudge(process);
         }
 
         var rails = [document.querySelector(".standard__notes"), document.querySelector("[data-process-rail]")];
