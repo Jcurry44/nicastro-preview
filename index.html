@@ -2049,6 +2049,12 @@
       left: 0.8rem;
       z-index: 90;
       display: none;
+      transition: transform 340ms var(--ease);
+    }
+
+    .mobile-contact.is-parked {
+      transform: translateY(calc(100% + 1.2rem));
+    }
       min-height: 52px;
       grid-template-columns: 1fr 1.45fr;
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -4532,6 +4538,16 @@
         railTabs();
         if (mobileMq.addEventListener) mobileMq.addEventListener("change", onMqChange);
         else if (mobileMq.addListener) mobileMq.addListener(onMqChange);
+      })();
+
+      (function initDockPark() {
+        var dock = document.querySelector(".mobile-contact");
+        var heroCta = document.querySelector(".hero__actions .button--signal");
+        if (!dock || !heroCta || !("IntersectionObserver" in window)) return;
+        var watcher = new IntersectionObserver(function (entries) {
+          dock.classList.toggle("is-parked", entries[0].isIntersecting);
+        }, { threshold: 0.4 });
+        watcher.observe(heroCta);
       })();
 
       (function initOfficePhotos() {
