@@ -579,10 +579,20 @@
       gap: 0.8rem 1.8rem;
       align-items: center;
       margin-top: 1.7rem;
-      color: var(--steel);
+      color: var(--ink-soft);
       font-family: var(--mono);
       font-size: 0.68rem;
       letter-spacing: 0.03em;
+    }
+
+    .hero__micro > span::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin-right: 0.55rem;
+      vertical-align: 1px;
+      background: var(--signal);
     }
 
     .hero__micro a {
