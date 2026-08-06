@@ -2042,6 +2042,16 @@
       color: var(--paper);
     }
 
+    @media (min-width: 1600px) {
+      .hero { --container: 1460px; }
+      .hero, .hero__container { min-height: min(calc(100svh - var(--header-height)), 960px); }
+      .hero h1 { font-size: clamp(8.6rem, 6.4vw, 10.2rem); }
+      .hero__copy { max-width: 880px; }
+      .hero__lead { max-width: 700px; font-size: 1.24rem; }
+      .proof strong, .proof a { font-size: 1.02rem; }
+      .proof__label { font-size: 0.62rem; }
+    }
+
     .label-line { display: block; font: inherit; }
     .field .opt { font-style: normal; font-weight: 400; opacity: 0.55; font-size: 0.82em; margin-left: 0.35rem; }
     .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.55rem; }
@@ -3379,8 +3389,8 @@
                 <span>Call to set up an appointment</span>
                 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 3.5h3.2l1.4 3.8-2 1.6a11.5 11.5 0 0 0 4 4l1.6-2 3.8 1.4v3.2a1.5 1.5 0 0 1-1.6 1.5C8.6 16.5 3.5 11.4 3 5.1a1.5 1.5 0 0 1 1.5-1.6Z" /></svg>
               </a>
-              <a class="button button--line" href="#services">
-                <span>Explore services</span>
+              <a class="button button--line" href="#contact">
+                <span>Or have us call you</span>
                 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M5 11l5 5 5-5" /></svg>
               </a>
             </div>
