@@ -1914,7 +1914,8 @@
       grid-column: 1 / -1;
     }
 
-    .field label {
+    .field label,
+    .field .label-line {
       display: block;
       margin-bottom: 0.55rem;
       color: #cbd4d8;
@@ -1945,8 +1946,9 @@
       color: rgba(242, 240, 233, 0.32);
     }
 
-    .field select {
-      color-scheme: dark;
+    .field select option {
+      color: #14232b;
+      background: #fff;
     }
 
     .field textarea {
@@ -2064,6 +2066,10 @@
     }
     .chip input:checked + span { background: #102a43; border-color: #102a43; color: #f7f1e3; }
     .chip input:focus-visible + span { outline: 2px solid #c0392b; outline-offset: 2px; }
+    .on-dark .chip span { border-color: rgba(242, 240, 233, 0.42); color: var(--paper); }
+    @media (hover: hover) { .on-dark .chip:hover span { border-color: rgba(242, 240, 233, 0.75); } }
+    .on-dark .chip input:checked + span { background: #f2f0e9; border-color: #f2f0e9; color: #14232b; }
+    .on-dark .chip input:focus-visible + span { outline-color: #ff7589; }
 
     .mobile-contact {
       position: fixed;
