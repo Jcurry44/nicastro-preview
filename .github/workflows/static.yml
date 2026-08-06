@@ -28,3 +28,7 @@ jobs:
           path: '.'
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Pages queue can run far past the 10-min default on slow days;
+          # a timeout here cancels the deployment itself, so be generous.
+          timeout: 1800000
