@@ -129,7 +129,26 @@ body.road #reportPane{display:none}
   padding-left:11px}
 .row.open .rx{display:block}
 .row.open .car{transform:rotate(90deg);display:inline-block}
-.tx{display:flex;gap:8px;font-size:12.5px;padding:2.5px 0;border-bottom:1px dotted var(--rule)}
+.tx{display:flex;gap:8px;font-size:12.5px;padding:2.5px 0;border-bottom:1px dotted var(--rule);
+  cursor:pointer;-webkit-tap-highlight-color:transparent}
+@media (hover:hover){.tx:hover .n{color:var(--ink);text-decoration:underline}}
+#vmodal{border:1px solid var(--rule-strong,#c9c0ac);border-radius:12px;padding:0;
+  width:min(480px,calc(100vw - 36px));background:var(--paper);color:var(--ink);
+  box-shadow:0 24px 60px -24px rgba(29,28,25,.45)}
+#vmodal::backdrop{background:rgba(29,28,25,.35)}
+.vm-h{background:var(--brand);color:#f2efe6;padding:14px 18px;border-radius:11px 11px 0 0;
+  display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.vm-h b{font-size:15px}
+.vm-h small{font:600 8.5px/1.5 system-ui;letter-spacing:.2em;opacity:.75;display:block}
+.vm-x{background:none;border:0;color:#f2efe6;font-size:18px;cursor:pointer;padding:0 2px;line-height:1}
+.vm-b{padding:14px 18px 16px}
+.vm-stats{display:flex;gap:22px;margin:2px 0 10px}
+.vm-stats .v{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:19px;font-weight:600}
+.vm-stats .l{font:600 8.5px/1.6 system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.vm-list{border-top:2px solid var(--ink);margin-top:4px}
+.vm-note{color:var(--muted);font-size:12px;font-style:italic;margin:10px 0 0}
+.vm-road{margin:12px -18px -16px;padding:10px 18px 12px;background:var(--card);
+  border-top:1px solid var(--rule);font-size:12px;color:var(--muted);border-radius:0 0 11px 11px}
 .tx:last-of-type{border-bottom:0}
 .tx .d{flex:none;color:var(--faint);width:40px}
 .tx .n{flex:1;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -527,6 +546,8 @@ svg{display:block;width:100%;height:auto}
 
 <footer class="foot"><div class="wrap">Sample deliverable &middot; single file &middot; no
 server, no login &mdash; opens anywhere, shared only through the client portal.</div></footer>
+
+<dialog id="vmodal"></dialog>
 </div>
 
 <script id="D" type="application/json">{"months":["Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 26"],"rev":[63100,61400,55800,48900,38200,30400,27900,26300,34800,52600,64100,64500,70330],"exp":[52900,51200,47700,42800,35600,29800,27100,26900,32900,45300,54200,55100,57440],"revLines":[["Maintenance contracts",38400,"Weekly mowing, beds, seasonal cleanups - 41 properties",37200],["Design-build projects",22750,"Three installs: two patios, one full front-yard redesign",18400],["Irrigation & repair",9180,"Startups, repairs and two new zone installs",8900]],"expCats":[["Payroll & subcontractors",31240,30480],["Materials & plants",9870,11230],["Equipment & repairs",4150,3890],["Fuel",3420,2480],["Vehicle leases",2980,2980],["Insurance",2210,2210],["Marketing",1150,1390],["Merchant fees",1020,940],["Software & office",860,830],["Utilities",540,620]],"mrev":[[33188,33573,30849,25104,20476,16691,16578,12838,18779,27692,34574,37200,38400],[20639,20283,17453,17408,12252,8929,8108,10376,12445,16969,21062,18400,22750],[9273,7544,7498,6388,5472,4780,3214,3086,3576,7940,8464,8900,9180]],"mexp":[[29415,28949,25831,21434,17719,14782,16095,15341,18029,26032,29947,30480,31240],[9036,8103,9467,8446,6253,5562,3711,4646,5118,6082,8669,11230,9870],[3378,4022,3205,2939,3056,2634,1680,1638,2868,3461,4332,3890,4150],[3320,3336,2483,2479,2466,1988,1762,1485,1855,2876,3623,2480,3420],[2707,2165,2087,2567,1828,1700,1399,1428,1604,2307,2392,2980,2980],[1979,1684,1696,2030,1711,1234,832,860,1363,1780,2011,2210,2210],[1012,900,1050,983,888,595,500,529,692,800,1137,1390,1150],[800,732,862,774,648,531,478,447,568,864,893,940,1020],[734,816,589,742,692,466,439,312,480,679,728,830,860],[518,494,429,406,341,308,204,213,321,419,468,620,540]],"txns":[{"d":"07/01","n":"Truck lease - F-350","c":"Vehicle leases","a":-2080.58},{"d":"07/01","n":"Accounting software","c":"Software & office","a":-544.99},{"d":"07/02","n":"Customer payment - Maple St project","c":"Maintenance contracts","a":4362.97},{"d":"07/02","n":"Customer payment - Maple St project","c":"Maintenance contracts","a":3010.47},{"d":"07/06","n":"Payroll taxes","c":"Payroll & subcontractors","a":-4144.13},{"d":"07/06","n":"Scheduling software","c":"Software & office","a":-315.01},{"d":"07/06","n":"Customer payment - Sunset Grill patio","c":"Maintenance contracts","a":2373.07},{"d":"07/07","n":"Workers comp premium","c":"Insurance","a":-1346.73},{"d":"07/07","n":"Customer payment - Village of Fairhaven mowing","c":"Maintenance contracts","a":1595.01},{"d":"07/07","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":5941.8},{"d":"07/09","n":"Crew payroll run","c":"Payroll & subcontractors","a":-2462.51},{"d":"07/09","n":"GreenLeaf Nursery Supply","c":"Materials & plants","a":-1452.2},{"d":"07/09","n":"Customer payment - Elmwood duplexes","c":"Maintenance contracts","a":2017.77},{"d":"07/10","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-1954.47},{"d":"07/10","n":"Mulch Depot","c":"Materials & plants","a":-1100.85},{"d":"07/10","n":"WNY Equipment Rental","c":"Equipment & repairs","a":-1365.54},{"d":"07/11","n":"Customer payment - Sunset Grill patio","c":"Irrigation & repair","a":1793.68},{"d":"07/11","n":"Customer payment - Harborview HOA","c":"Irrigation & repair","a":2329.79},{"d":"07/12","n":"WNY Equipment Rental","c":"Equipment & repairs","a":-1687.5},{"d":"07/12","n":"Customer payment - Harborview HOA","c":"Maintenance contracts","a":3079.05},{"d":"07/13","n":"Customer payment - Harborview HOA","c":"Irrigation & repair","a":4597.31},{"d":"07/13","n":"Customer payment - Ashford residence","c":"Maintenance contracts","a":3492.9},{"d":"07/13","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":2777.34},{"d":"07/14","n":"Mower deck repair - shop","c":"Equipment & repairs","a":-1096.96},{"d":"07/14","n":"Fleet Fuel Co","c":"Fuel","a":-1029.62},{"d":"07/15","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-1464.22},{"d":"07/15","n":"Customer payment - Village of Fairhaven mowing","c":"Irrigation & repair","a":1802.53},{"d":"07/16","n":"Crew payroll run","c":"Payroll & subcontractors","a":-4136.76},{"d":"07/16","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-1876.59},{"d":"07/16","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-1893.74},{"d":"07/16","n":"Mulch Depot","c":"Materials & plants","a":-1269.72},{"d":"07/16","n":"Shop electric","c":"Utilities","a":-334.27},{"d":"07/18","n":"Crew payroll run","c":"Payroll & subcontractors","a":-2291.68},{"d":"07/18","n":"Marina Gas & Go","c":"Fuel","a":-2390.38},{"d":"07/18","n":"Customer payment - Harborview HOA","c":"Irrigation & repair","a":2718.44},{"d":"07/18","n":"Customer payment - Maple St project","c":"Design-build projects","a":3335.58},{"d":"07/19","n":"Local search ads","c":"Marketing","a":-600.92},{"d":"07/21","n":"Card processing fees","c":"Merchant fees","a":-425.26},{"d":"07/21","n":"Customer payment - Sunset Grill patio","c":"Maintenance contracts","a":2439.47},{"d":"07/21","n":"Customer payment - Delta Sports Complex","c":"Maintenance contracts","a":4041.54},{"d":"07/22","n":"Workers comp premium","c":"Insurance","a":-863.27},{"d":"07/23","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-4570.53},{"d":"07/23","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-812.68},{"d":"07/23","n":"Customer payment - Ashford residence","c":"Maintenance contracts","a":3064.97},{"d":"07/25","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-2719.38},{"d":"07/25","n":"Card processing fees","c":"Merchant fees","a":-594.74},{"d":"07/25","n":"Customer payment - Birchwood Dental","c":"Maintenance contracts","a":3340.18},{"d":"07/26","n":"Truck lease - Transit","c":"Vehicle leases","a":-899.42},{"d":"07/26","n":"Customer payment - Delta Sports Complex","c":"Maintenance contracts","a":1885.48},{"d":"07/27","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-4306.35},{"d":"07/29","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":2242.57},{"d":"07/29","n":"Customer payment - Ashford residence","c":"Maintenance contracts","a":2185.69},{"d":"07/30","n":"Crew payroll run","c":"Payroll & subcontractors","a":-4654.19},{"d":"07/30","n":"Customer payment - Delta Sports Complex","c":"Maintenance contracts","a":2730.7},{"d":"07/30","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":3171.69},{"d":"07/31","n":"Local search ads","c":"Marketing","a":-549.08},{"d":"07/31","n":"Shop electric","c":"Utilities","a":-205.73}]}</script>
@@ -570,6 +591,7 @@ function renderCats(host,cats,rev){
   });
   host.innerHTML=h;
   host.addEventListener('click',function(e){
+    if(e.target.closest('.tx')) return;
     var row=e.target.closest('.row'); if(!row) return;
     var open=row.classList.toggle('open');
     row.setAttribute('aria-expanded',open);
@@ -579,8 +601,9 @@ function renderCats(host,cats,rev){
     var hh='';
     if(c[2]&&rev) hh+='<p class="rnote">'+esc(c[2])+'</p>';
     tx.forEach(function(t){
-      hh+='<div class="tx"><span class="d num">'+t.d+'</span><span class="n">'+esc(t.n)+
-        '</span><span class="a num">'+money2(t.a)+'</span></div>';
+      hh+='<div class="tx" data-n="'+esc(t.n)+'" role="button" tabindex="0" '+
+        'title="Everything with this name in July"><span class="d num">'+t.d+
+        '</span><span class="n">'+esc(t.n)+'</span><span class="a num">'+money2(t.a)+'</span></div>';
     });
     hh+='<p class="rnote">'+tx.length+' transactions &middot; sums to '+money(c[1])+' exactly.</p>';
     row.querySelector('.rx').innerHTML=hh;
@@ -588,6 +611,54 @@ function renderCats(host,cats,rev){
 }
 renderCats(document.getElementById('revList'),D.revLines,true);
 renderCats(document.getElementById('expList'),D.expCats.map(function(c){return [c[0],c[1]];}),false);
+
+/* vendor lens: any transaction opens everything with that name */
+(function(){
+  var dlg=document.getElementById('vmodal');
+  var expTot=0; D.expCats.forEach(function(c){expTot+=c[1];});
+  var revTot=0; D.revLines.forEach(function(l){revTot+=l[1];});
+  function open(name){
+    var tx=D.txns.filter(function(t){return t.n===name;})
+      .sort(function(a,b){return a.d<b.d?-1:1;});
+    if(!tx.length) return;
+    var isExp=tx[0].a<0, tot=0, cats={};
+    tx.forEach(function(t){tot+=Math.abs(t.a); cats[t.c]=1;});
+    var share=100*tot/(isExp?expTot:revTot);
+    var h='<div class="vm-h"><div><small>'+(isExp?'VENDOR':'CUSTOMER')+' &middot; JULY 2026</small>'+
+      '<b>'+esc(name)+'</b></div><button class="vm-x" aria-label="Close">&times;</button></div>'+
+      '<div class="vm-b"><div class="vm-stats">'+
+      '<span><span class="v">'+money2(isExp?-tot:tot)+'</span><br><span class="l">Total</span></span>'+
+      '<span><span class="v">'+tx.length+'</span><br><span class="l">Transactions</span></span>'+
+      '<span><span class="v">'+share.toFixed(1)+'%</span><br><span class="l">of '+(isExp?'expenses':'revenue')+'</span></span>'+
+      '</div><div class="vm-list">';
+    tx.forEach(function(t){
+      h+='<div class="tx" style="cursor:default"><span class="d num">'+t.d+'</span><span class="n">'+
+        esc(t.c)+'</span><span class="a num">'+money2(t.a)+'</span></div>';
+    });
+    h+='</div><p class="vm-note">Every line ties to the reconciled register &mdash; category shown per charge.</p>'+
+      '<div class="vm-road">In the live product this lens carries the whole relationship: every month on record, '+
+      'price drift per line, and the document behind each charge.</div></div>';
+    dlg.innerHTML=h;
+    dlg.querySelector('.vm-x').addEventListener('click',function(){dlg.close();});
+    dlg.showModal();
+  }
+  dlg.addEventListener('click',function(e){
+    var r=dlg.getBoundingClientRect();
+    if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom) dlg.close();
+  });
+  ['revList','expList'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener('click',function(e){
+      var t=e.target.closest('.tx[data-n]'); if(!t) return;
+      e.stopPropagation(); open(t.getAttribute('data-n'));
+    });
+    el.addEventListener('keydown',function(e){
+      if(e.key!=='Enter'&&e.key!==' ') return;
+      var t=e.target.closest('.tx[data-n]'); if(!t) return;
+      e.preventDefault(); e.stopPropagation(); open(t.getAttribute('data-n'));
+    });
+  });
+})();
 
 /* trend with touch scrub */
 (function(){
