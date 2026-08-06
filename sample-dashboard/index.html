@@ -44,6 +44,18 @@ h1,h2,h3{font-weight:700;letter-spacing:-.01em}
 .firm small{display:block;font:600 8.5px/1.6 system-ui;letter-spacing:.24em;opacity:.75}
 .chip{font:700 9px/1 system-ui;letter-spacing:.14em;border:1px solid rgba(242,239,230,.4);
   border-radius:3px;padding:4px 8px}
+.golive{margin:12px 0 4px}
+.gstep{display:flex;gap:12px;padding:10px 12px;border:1px solid var(--rule);
+  border-radius:9px;background:var(--card);margin:8px 0}
+.gnum{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand);color:var(--paper);
+  font:700 12px/26px system-ui;text-align:center}
+.gstep b{font-size:14px}
+.gstep p{margin:2px 0 0;color:var(--muted);font-size:12.5px}
+.glink{font-weight:700}
+@media (min-width:960px){
+  .golive{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .gstep{margin:0}
+}
 .flowmap{margin:12px 0 4px}
 .fstep{display:flex;gap:12px;padding:10px 12px;border:1px solid var(--rule);
   border-radius:9px;background:var(--card);margin:8px 0;position:relative}
@@ -531,6 +543,23 @@ svg{display:block;width:100%;height:auto}
 
   <p class="sub" style="margin:16px 0 30px">Every stage keeps the same rule this report was
   built on: if the numbers don&rsquo;t tie out, nothing publishes.</p>
+
+  <h2 style="font-size:20px;margin:26px 0 2px">Getting nicacct.com live</h2>
+  <p class="sub">The new website is built and hosted &mdash; three owner steps flip it on</p>
+  <div class="golive">
+    <div class="gstep"><span class="gnum">1</span><div><b>Bless the facts</b>
+      <p>Read the site once &mdash; services, the 5.0-review claim, the address, the
+      phone-first flow. Your name is on it.</p></div></div>
+    <div class="gstep"><span class="gnum">2</span><div><b>Ten minutes at the registrar</b>
+      <p>Whoever holds the GoDaddy login enters five records from the hand-off sheet.
+      Email records are never touched &mdash; admin@nicacct.com keeps working.</p></div></div>
+    <div class="gstep"><span class="gnum">3</span><div><b>Say go</b>
+      <p>The secure certificate issues itself and nicacct.com serves the new site &mdash;
+      usually the same day.</p></div></div>
+  </div>
+  <p class="sub" style="margin:12px 0 30px"><a class="glink" href="../go-live/" target="_blank"
+  rel="noreferrer">Open the DNS hand-off sheet &rarr;</a> &mdash; written to forward straight
+  to whoever manages the domain.</p>
 </div></div><!-- /roadPane -->
 
 <section class="method"><div class="wrap">
@@ -850,5 +879,3 @@ grow(document);
 })();
 </script>
 </body></html>
-<!-- b2 -->
-<!-- b3 -->
