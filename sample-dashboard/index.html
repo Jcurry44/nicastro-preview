@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Meridian Landscaping LLC - July 2026 - SAMPLE</title>
+<style>
+*{box-sizing:border-box}
+:root{--paper:#f7f4ee;--desk:#eae3d3;--ink:#1d1c19;--muted:#5c574d;--faint:#8b8579;--rule:#ddd6c8;
+  --rule-strong:#c9c1b0;--card:#fcfaf5;--brand:#1d4b3f;--brand-soft:#e4ede9;
+  --accent:#8a5a24;--ok:#3d6b40;--ok-soft:#e8f0e6;--warn:#a04b2e;--warn-soft:#f3e5dd;
+  --gridline:#e8e2d4;--rev:#1d4b3f;--exp:#8a4b2a}
+body{margin:0;background:var(--desk);color:var(--ink);
+  font:15px/1.5 Georgia,'Times New Roman',serif;-webkit-text-size-adjust:100%}
+.num{font-family:'SF Mono',SFMono-Regular,ui-monospace,Menlo,Consolas,monospace;
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+@media (min-width:960px){
+  .wrap{max-width:1120px}
+  .pnl2{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  .pnl2 .halfw .wraph{padding:0 18px}
+  .mvpair{display:grid;grid-template-columns:1.35fr 1fr;gap:30px;align-items:start}
+  .mvpair .exc{margin-top:0}
+  .bmks{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .bmks .bmk{margin:0}
+  .phases{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch}
+  .phases .ph{margin:12px 0 0}
+  .findings{grid-template-columns:1fr 1fr 1fr}
+  .big3{gap:48px}
+  .hero{padding:30px 0 8px}
+  .sect h2{font-size:21px}
+  .cattot .ctv{font-size:26px}
+  #trend{max-width:940px}
+  .bmks .bmk.ctx{grid-column:1 / -1}
+}
+.pnl2{max-width:1120px;margin:0 auto}
+.wraph{max-width:760px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-weight:700;letter-spacing:-.01em}
+.sample{position:sticky;top:0;z-index:20;background:#7a2e2e;color:#fff;text-align:center;
+  font:700 10px/1 system-ui;letter-spacing:.22em;padding:7px 10px}
+.mast{background:var(--brand);color:#f2efe6;padding:16px 0 14px}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.firm{font-size:17px;font-weight:700;letter-spacing:.02em}
+.firm small{display:block;font:600 8.5px/1.6 system-ui;letter-spacing:.24em;opacity:.75}
+.chip{font:700 9px/1 system-ui;letter-spacing:.14em;border:1px solid rgba(242,239,230,.4);
+  border-radius:3px;padding:4px 8px}
+.flowmap{margin:12px 0 4px}
+.fstep{display:flex;gap:12px;padding:10px 12px;border:1px solid var(--rule);
+  border-radius:9px;background:var(--card);margin:8px 0;position:relative}
+.fstep::after{content:"";position:absolute;left:26px;bottom:-9px;width:2px;height:9px;
+  background:var(--rule-strong)}
+.fstep:last-child::after{display:none}
+.fnum{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--paper);
+  font:700 12px/26px system-ui;text-align:center}
+.fstep b{font-size:14px}
+.fstep p{margin:2px 0 0;color:var(--muted);font-size:12.5px}
+.ftag{display:inline-block;margin-top:5px;font:700 8.5px/1 system-ui;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 7px;border-radius:8px}
+.fstep.auto .ftag{background:var(--brand-soft);color:var(--brand)}
+.fstep.human .ftag{background:var(--warn-soft);color:var(--warn)}
+.fstep.human{border-color:#e3cbbd}
+@media (min-width:960px){
+  .flowmap{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fstep{margin:0}
+  .fstep::after{display:none}
+}
+.tabs{background:var(--brand);padding:0 0 14px}
+.tabs .wrap{display:flex;gap:8px}
+.tabs button{font:700 11px/1 system-ui;letter-spacing:.06em;padding:9px 14px;border-radius:16px;
+  border:1px solid rgba(242,239,230,.35);background:none;color:rgba(242,239,230,.75);
+  cursor:pointer;-webkit-tap-highlight-color:transparent}
+.tabs button[aria-pressed="true"]{background:#f2efe6;border-color:#f2efe6;color:var(--brand)}
+#roadPane{display:none}
+body.road #roadPane{display:block}
+body.road #reportPane{display:none}
+.ph{border:1px solid var(--rule);border-radius:10px;background:var(--card);
+  padding:14px 16px;margin:12px 0}
+.ph .tag{font:700 9px/1 system-ui;letter-spacing:.16em;text-transform:uppercase;
+  padding:4px 8px;border-radius:3px;display:inline-block;margin-bottom:7px}
+.ph.now .tag{background:var(--ok-soft);color:var(--ok)}
+.ph.next .tag{background:var(--brand-soft);color:var(--brand)}
+.ph.later .tag{background:#efe7d8;color:var(--accent)}
+.ph h3{margin:0 0 4px;font-size:16px}
+.ph p{margin:4px 0;color:var(--muted);font-size:13.5px}
+.ph ul{margin:6px 0 2px;padding-left:18px;color:var(--muted);font-size:13.5px}
+.ph li{margin:3px 0}
+.bench{background:var(--brand);color:#f2efe6;border:0}
+.bench h3,.bench .tag{color:#f2efe6}
+.bench .tag{background:rgba(242,239,230,.16)}
+.bench p,.bench li{color:rgba(242,239,230,.85)}
+.hero{padding:24px 0 6px}
+.client{font-size:24px;margin:0}
+.period{color:var(--faint);font:600 11px/1.8 system-ui;letter-spacing:.14em;text-transform:uppercase}
+.big3{display:flex;gap:26px;flex-wrap:wrap;margin:14px 0 4px}
+.b3 .v{font-size:27px;font-weight:700}
+.b3 .l{font:700 9.5px/1.7 system-ui;letter-spacing:.11em;color:var(--faint);text-transform:uppercase}
+.b3.net .v{color:var(--ok)}
+.deltas{color:var(--muted);font-size:13px;margin:2px 0 0}
+.deltas b{color:var(--ok)}
+.gate{background:var(--ok-soft);border:1px solid #cfe0cb;border-radius:8px;color:var(--ok);
+  font:600 11.5px/1.55 system-ui;padding:9px 12px;margin:16px 0 4px}
+.sect{margin-top:26px}
+.sect h2{font-size:18px;margin:0 0 2px}
+.cattot{display:flex;align-items:baseline;gap:10px;padding:2px 0 8px;margin-bottom:2px;
+  border-bottom:2px solid var(--ink)}
+.cattot .ctv{font-size:23px;font-weight:700}
+.cattot .ctl{font:600 9.5px/1.4 system-ui;letter-spacing:.1em;color:var(--faint);
+  text-transform:uppercase}
+.sub{color:var(--faint);font:11px system-ui;margin:0 0 10px}
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+.fc{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:11px 13px}
+.fc .k{font:700 8.5px/1.6 system-ui;letter-spacing:.12em;color:var(--faint);text-transform:uppercase}
+.fc .v{font-size:19px;font-weight:700}
+.fc .n{color:var(--muted);font-size:12px;margin-top:2px}
+.fc.warn .v{color:var(--warn)}
+.row{border-bottom:1px solid var(--rule);padding:9px 0;cursor:pointer;
+  -webkit-tap-highlight-color:transparent}
+.row:last-child{border-bottom:0}
+@media(hover:hover){.row:hover{background:var(--card)}}
+.rt{display:flex;align-items:baseline;gap:10px}
+.rt .nm{flex:1;font-size:14.5px;font-weight:600;min-width:0}
+.rt .amt{font-weight:700;font-size:14.5px;white-space:nowrap}
+.rt .pct{color:var(--faint);font-size:11.5px;width:44px;text-align:right;flex:none}
+.rt .car{color:var(--faint);flex:none}
+.bar{height:7px;background:var(--gridline);border-radius:2px;overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;border-radius:0 2px 2px 0;background:var(--exp)}
+.rev .bar i{background:var(--rev)}
+.rx{display:none;padding:9px 2px 4px;border-left:2px solid var(--rule-strong);margin:8px 0 2px 3px;
+  padding-left:11px}
+.row.open .rx{display:block}
+.row.open .car{transform:rotate(90deg);display:inline-block}
+.tx{display:flex;gap:8px;font-size:12.5px;padding:2.5px 0;border-bottom:1px dotted var(--rule)}
+.tx:last-of-type{border-bottom:0}
+.tx .d{flex:none;color:var(--faint);width:40px}
+.tx .n{flex:1;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tx .a{flex:none;font-weight:600}
+.rnote{color:var(--muted);font-size:12px;font-style:italic;margin:4px 0 2px}
+.chartwrap{position:relative;margin-top:8px}
+svg{display:block;width:100%;height:auto}
+.gl{stroke:var(--gridline);stroke-width:1}
+.ax{fill:var(--faint);font-family:ui-monospace,Menlo,monospace}
+.ln{fill:none;stroke-width:2.5;stroke-linejoin:round}
+.tip{position:absolute;top:2px;left:0;background:var(--card);border:1px solid var(--rule-strong);
+  border-radius:6px;padding:6px 9px;font-size:11.5px;pointer-events:none;opacity:0;
+  box-shadow:0 4px 14px -6px rgba(0,0,0,.25);white-space:nowrap}
+.tip .ty{font-weight:700;font-family:ui-monospace,Menlo,monospace}
+.tip .tl{display:flex;justify-content:space-between;gap:12px}
+.tip .tl b{font-weight:600}
+.legend{display:flex;gap:16px;font:11px system-ui;color:var(--muted);margin-top:6px}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:5px}
+.mv{display:flex;align-items:center;gap:10px;padding:4px 0}
+.mv .l{width:150px;font-size:13px;flex:none}
+.mv .b{flex:1;height:9px;background:var(--gridline);border-radius:2px;overflow:hidden}
+.mv .b i{display:block;height:100%}
+.mv .v{width:86px;text-align:right;font-size:12.5px;font-weight:700;flex:none}
+.up{color:var(--warn)}.dn{color:var(--ok)}
+.vt-h,.vt-r{display:grid;grid-template-columns:1fr 92px 92px 150px 64px;gap:0 12px;
+  align-items:baseline;padding:6px 2px;border-bottom:1px solid var(--rule)}
+.vt-h{font:700 8.5px/1.4 system-ui;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);border-bottom:2px solid var(--ink)}
+.vt-h .vt-c,.vt-h .vt-p,.vt-h .vt-pc{text-align:right}
+.vt-h .vt-d{text-align:right}
+.vt-n{font-size:13.5px;font-weight:600;min-width:0}
+.vt-n em{font:600 9px/1 system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--rev);font-style:normal;margin-left:4px}
+.vt-c,.vt-p{text-align:right;font-size:12.5px;color:var(--muted)}
+.vt-d{position:relative;text-align:right;font-size:13px}
+.vt-d .vb2{position:absolute;left:0;top:50%;transform:translateY(-50%);height:6px;
+  border-radius:2px;max-width:58%;opacity:.55}
+.vt-d b{position:relative;font-weight:700}
+.vt-pc{text-align:right;font-size:11.5px;font-weight:600}
+.vt-r.sub{border-top:2px solid var(--rule-strong);border-bottom:0;background:var(--card);
+  padding:7px 2px}
+.vt-r.sub .vt-n{font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.vt-r.sub .vt-c,.vt-r.sub .vt-p{font-weight:700;color:var(--ink)}
+.vt-r.net{border-top:3px double var(--ink);background:none}
+.vt-r.net .vt-n{font-size:13px}
+@media (max-width:700px){
+  .vt-h{display:none}
+  .vt-r{grid-template-columns:1fr 1fr 1.1fr;gap:2px 10px;padding:9px 2px}
+  .vt-n{grid-column:1 / -1}
+  .vt-c::before,.vt-p::before,.vt-d::before{content:attr(data-l);display:block;
+    font:700 8px/1.4 system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  .vt-c,.vt-p{text-align:left}
+  .vt-d{text-align:left}
+  .vt-d .vb2{display:none}
+  .vt-pc{display:none}
+  .vt-r.sub .vt-c::before,.vt-r.sub .vt-p::before,.vt-r.sub .vt-d::before{content:none}
+}
+.mvcomm{background:var(--card);border-left:3px solid var(--brand);padding:8px 12px;
+  font-size:13px;color:var(--muted);margin:10px 0 12px;border-radius:0 6px 6px 0}
+.mvchips{display:flex;gap:6px;margin:2px 0 10px;flex-wrap:wrap}
+.mvchips button{font:700 11px/1 system-ui;letter-spacing:.04em;padding:7px 12px;
+  border-radius:14px;border:1px solid var(--rule-strong);background:none;color:var(--muted);
+  cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mvchips button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#f2efe6}
+.bar i,.mv .b i{transition:width .9s cubic-bezier(.22,.8,.3,1)}
+@media (prefers-reduced-motion:reduce){.bar i,.mv .b i{transition:none}}
+.exc{background:var(--warn-soft);border:1px solid #e3cbbd;border-radius:8px;padding:12px 14px;margin-top:12px}
+.exc h3{margin:0 0 4px;font-size:14px;color:var(--warn)}
+.exc .e{font-size:13px;color:var(--muted);padding:3px 0}
+.exc .e b{color:var(--ink)}
+.bmk{border:1px solid var(--rule);border-radius:10px;background:var(--card);
+  padding:12px 14px 10px;margin:12px 0}
+.bmk .bt{font-size:14.5px;font-weight:700}
+.bmk .bu{font:600 9px/1 system-ui;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);margin-left:8px}
+.rail{position:relative;height:74px;margin:6px 2px 0}
+.rail::before{content:"";position:absolute;left:0;right:0;top:44px;height:2px;
+  background:var(--gridline)}
+.btick{position:absolute;top:41px;width:8px;height:8px;border-radius:50%;
+  background:var(--faint);border:2px solid var(--card);transform:translateX(-50%)}
+.bband{position:absolute;top:39px;height:12px;border-radius:6px;
+  background:color-mix(in srgb,var(--faint) 26%,transparent)}
+.bdot{position:absolute;transform:translateX(-50%);text-align:center}
+.bdot em{font:600 9px/1.25 system-ui;letter-spacing:.02em;color:var(--faint);
+  font-style:normal;white-space:nowrap;display:block}
+.bdot em small{font-weight:600;font-size:8px}
+.bdot.lane0{top:22px}
+.bdot.lane1{top:6px}
+.bdot.me{top:52px}
+.bdot.me i{display:block;width:13px;height:13px;border-radius:50%;
+  background:var(--brand);border:2px solid var(--card);margin:-19px auto 4px}
+.bdot.me em{color:var(--brand);font-size:10px;font-weight:700}
+.bcn{position:absolute;width:1px;background:var(--rule-strong);transform:translateX(-50%)}
+.bcn.c0{top:34px;height:8px}
+.bcn.c1{top:18px;height:24px}
+.bmk .bn{color:var(--muted);font-size:11.5px;margin:8px 0 0;line-height:1.5}
+.bmk.ctx{background:var(--brand-soft);border-color:#cfdcd6}
+.netcard{border:1px solid var(--rule);border-radius:10px;background:var(--card);
+  padding:13px 15px 11px;margin-top:16px}
+.nch{font:700 10px/1.6 system-ui;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);margin-bottom:8px}
+.ncb{display:flex;align-items:center;gap:10px;margin:5px 0}
+.ncb .l{width:64px;font:600 9px/1 system-ui;letter-spacing:.08em;color:var(--faint);
+  text-transform:uppercase;flex:none}
+.ncb .bar{flex:1;height:11px;background:var(--gridline);border-radius:3px;overflow:hidden}
+.ncb .bar i{display:block;height:100%;border-radius:0 3px 3px 0}
+.ncb .v{flex:none;font-weight:700;font-size:13px;width:76px;text-align:right}
+.ncs{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--muted)}
+.ncs b{font-size:15px;color:var(--ink)}
+.ncn{font:11px system-ui;color:var(--faint);margin:8px 0 0}
+.method{margin:30px 0 0;background:#22201c;color:#e8e3d8;padding:22px 0 26px}
+.method h2{font-size:16px;margin:0 0 6px}
+.method p{color:#a89f8f;font-size:12.5px;max-width:70ch;margin:6px 0}
+#minibar{position:fixed;top:30px;left:0;right:0;z-index:15;background:var(--paper);
+  border-bottom:1px solid var(--rule-strong);box-shadow:0 6px 18px -12px rgba(0,0,0,.25);
+  transform:translateY(-130%);transition:transform .25s ease;padding:8px 0}
+#minibar.on{transform:none}
+.mrowm{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.mm-name{font-weight:700;font-size:14px}
+.mm-stats{font-size:12.5px;color:var(--muted)}
+.mm-stats b{font-size:13.5px}
+@media (prefers-reduced-motion:reduce){#minibar{transition:none}}
+
+/* number discipline: leaders carry the weight, detail rows step back */
+.tx .a{font-weight:500;color:var(--muted)}
+
+/* the report is a document: one sheet on a desk */
+.sheet{background:var(--paper)}
+@media (min-width:960px){
+  .sheet{max-width:min(1280px,calc(100% - 48px));margin:20px auto 48px;
+    border:1px solid #d5ccb9;border-radius:12px;
+    box-shadow:0 1px 2px rgba(29,28,25,.05),0 16px 40px -22px rgba(29,28,25,.22)}
+  .mast{border-radius:11px 11px 0 0}
+  .foot{border-radius:0 0 11px 11px}
+}
+
+@media print{
+  @page{size:Letter;margin:.5in}
+  html,body{background:#fff}
+  .sheet{max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;background:#fff}
+  body{font-size:11.5px}
+  .sample{position:static;background:#7a2e2e !important;-webkit-print-color-adjust:exact;
+    print-color-adjust:exact}
+  .mast{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .tabs,#minibar,#roadPane,.sec-trend,.sec-bmk,.foot{display:none !important}
+  /* the movers hide on print, but the exceptions box the gate line promises stays */
+  .sec-mv h2,.sec-mv .sub,.sec-mv .mvchips,.sec-mv #movers,.sec-mv .mvcomm{display:none !important}
+  .sec-mv{margin-top:8px}
+  .mvpair{display:block}
+  .method{display:none !important}
+  .hero{padding:8px 0 2px}
+  .mast{padding:8px 0 7px}
+  .period{font-size:9px}
+  .deltas{font-size:10.5px}
+  .big3 .v{font-size:22px}
+  .client{font-size:20px}
+  .gate{-webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:10px;
+    padding:6px 9px;margin:10px 0 2px}
+  .findings{grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
+  .fc{padding:7px 9px}
+  .fc .v{font-size:14px}
+  .fc .n{font-size:10px}
+  .pnl2{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:none}
+  .wraph{padding:0}
+  .sect{margin-top:12px}
+  .sect h2{font-size:14px}
+  .cattot .ctv{font-size:16px}
+  .row{padding:3.5px 0;page-break-inside:avoid}
+  .cattot{padding:0 0 4px}
+  .rt .nm,.rt .amt{font-size:11.5px}
+  .bar,.bar i,.ncb .bar i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bar{height:5px}
+  .rx{display:none !important}
+  .car{display:none}
+  .netcard{padding:8px 10px;margin-top:10px;page-break-inside:avoid}
+  .exc{page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+    padding:8px 10px;margin-top:8px}
+  .exc .e{font-size:10px}
+  .sub{display:none}
+}
+.foot{padding:16px 0 34px;color:var(--faint);font:11px system-ui}
+@media (max-width:640px){.big3{gap:18px}.mv .l{width:118px;font-size:12px}}
+</style></head><body>
+
+<div class="sample">SAMPLE &middot; ALL DATA FICTIONAL &middot; FOR DEMONSTRATION</div>
+
+<div class="sheet">
+
+<header class="mast"><div class="wrap mrow">
+  <div class="firm">Nicastro &amp; Co., CPAs<small>CLIENT ADVISORY REPORT</small></div>
+  <span class="chip">MONTHLY CLOSE</span>
+</div></header>
+
+<nav class="tabs"><div class="wrap">
+  <button id="tabRep" aria-pressed="true">July close</button>
+  <button id="tabRoad" aria-pressed="false">Where this goes</button>
+</div></nav>
+
+<div id="minibar" aria-hidden="true"><div class="wrap mrowm">
+  <span class="mm-name">Meridian Landscaping LLC &middot; July 2026</span>
+  <span class="mm-stats"><b class="num" style="color:var(--rev)">$70,330</b> in &middot;
+    <b class="num" style="color:var(--exp)">$57,440</b> out &middot;
+    <b class="num" style="color:var(--ok)">+$12,890</b> net</span>
+</div></div>
+
+<div id="reportPane">
+<section class="hero"><div class="wrap">
+  <div class="period">Prepared for</div>
+  <h1 class="client">Meridian Landscaping LLC</h1>
+  <div class="period">July 2026 &middot; closed August 4, 2026</div>
+  <div class="big3">
+    <div class="b3"><div class="v num" style="color:var(--rev)">$70,330</div><div class="l">Revenue</div></div>
+    <div class="b3"><div class="v num" style="color:var(--exp)">$57,440</div><div class="l">Expenses</div></div>
+    <div class="b3 net"><div class="v num">+$12,890</div><div class="l">Net</div></div>
+  </div>
+  <p class="deltas">Revenue <b>+9.0%</b> vs June &middot; <b>+11.5%</b> vs July last year &middot;
+    margin <span class="num">18.3%</span> &middot; cash at close <span class="num">$48,213.77</span></p>
+  <div class="gate">&#10003; RECONCILED &middot; 57 transactions &middot; matches the bank
+    statement&rsquo;s printed ending balance $48,213.77 &middot; 1 item held for review (below)
+    &mdash; this report refuses to publish unless the numbers tie out.</div>
+</div></section>
+
+<section class="sect"><div class="wrap">
+  <div class="findings">
+    <div class="fc warn"><div class="k">Watch &middot; Fuel</div><div class="v num">+38%</div>
+      <div class="n">$3,420 vs $2,480 in June &mdash; price and three new weekly routes.</div></div>
+    <div class="fc"><div class="k">Best month since</div><div class="v num">Sep 2025</div>
+      <div class="n">Second-highest revenue in 13 months; design-build carried it.</div></div>
+    <div class="fc"><div class="k">Margin trend</div><div class="v num">18.3%</div>
+      <div class="n">Third straight month above 15% after the winter squeeze.</div></div>
+  </div>
+</div></section>
+
+<div class="pnl2 wrap">
+<section class="sect halfw"><div class="wraph">
+  <h2>Where the money came from</h2>
+  <p class="sub">Open a line for the payments inside it</p>
+  <div class="cattot"><span class="ctv num" style="color:var(--rev)">$70,330</span>
+    <span class="ctl">total revenue &middot; July 2026 &middot; 3 service lines</span></div>
+  <div id="revList" class="rev"></div>
+  <div class="netcard">
+    <div class="nch">The bottom line</div>
+    <div class="ncb"><span class="l">Revenue</span><span class="bar"><i style="width:100%;background:var(--rev)"></i></span><span class="v num">$70,330</span></div>
+    <div class="ncb"><span class="l">Expenses</span><span class="bar"><i style="width:81.7%;background:var(--exp)"></i></span><span class="v num">$57,440</span></div>
+    <div class="ncs">
+      <span><b class="num" style="color:var(--ok)">+$12,890</b> net</span>
+      <span><b class="num">18.3%</b> margin</span>
+      <span><b class="num">$48,213.77</b> cash at close</span>
+    </div>
+    <p class="ncn">Every dollar above is one of the 57 reconciled transactions below.</p>
+  </div>
+</div></section>
+
+<section class="sect halfw"><div class="wraph">
+  <h2>Where the money went</h2>
+  <p class="sub">Open a category for every transaction inside it</p>
+  <div class="cattot"><span class="ctv num" style="color:var(--exp)">$57,440</span>
+    <span class="ctl">total expenses &middot; July 2026 &middot; 10 categories</span></div>
+  <div id="expList"></div>
+</div></section>
+</div><!-- /pnl2 -->
+
+<section class="sect sec-trend"><div class="wrap">
+  <h2>Thirteen months</h2>
+  <p class="sub">Scrub the chart &mdash; finger or mouse</p>
+  <div id="trend"></div>
+  <div class="legend"><span><b style="background:var(--rev)"></b>Revenue</span>
+    <span><b style="background:var(--exp)"></b>Expenses</span>
+    <span><b style="background:#b8ccb9"></b>The gap between them is profit</span></div>
+</div></section>
+
+<section class="sect sec-mv"><div class="wrap">
+  <h2 id="mvTitle">What moved</h2>
+  <p class="sub">Every category, biggest change first &mdash; pick the comparison</p>
+  <div class="mvchips" id="mvBasis">
+    <button data-b="mom" aria-pressed="true">vs June</button>
+    <button data-b="yoy" aria-pressed="false">vs July &rsquo;25</button>
+    <button data-b="qoq" aria-pressed="false">Q2 vs Q1</button>
+  </div>
+  <p class="mvcomm num-in" id="mvComm"></p>
+  <div class="mvchips" id="mvChips">
+    <button data-f="all" aria-pressed="true">All</button>
+    <button data-f="rev" aria-pressed="false">Revenue</button>
+    <button data-f="exp" aria-pressed="false">Expenses</button>
+  </div>
+  <div class="mvpair">
+  <div id="movers"></div>
+  <div class="exc">
+    <h3>Two items need your eye</h3>
+    <div class="e"><b>Check #1042 &middot; $240.00</b> &mdash; no category yet; memo line blank.
+      We&rsquo;ve held it out of the totals above.</div>
+    <div class="e"><b>Fleet Fuel Co &middot; $118.40 twice on 07/18</b> &mdash; possible duplicate
+      charge; flagged for a refund request, both currently counted.</div>
+  </div>
+  </div><!-- /mvpair -->
+</div></section>
+
+<section class="sect sec-bmk"><div class="wrap">
+  <h2>How you compare</h2>
+  <p class="sub">A first look &mdash; real government data, never guesses. Ranges are published
+  aggregates, not targets; your accountant interprets what they mean for you.</p>
+  <div class="bmks"><div class="bmk"><div class="bt">Payroll, share of revenue<span class="bu">%</span></div><div class="rail"><span class="bband" style="left:30.6%;width:8.1%"></span><span class="bdot lane0" style="left:34.6%"><em>Industry 30.9&ndash;32.5%</em></span><span class="btick" style="left:31.8%"></span><span class="btick" style="left:34.3%"></span><span class="btick" style="left:37.5%"></span><span class="bdot me" style="left:80.0%"><i></i><em>You 44.4%</em></span></div><p class="bn">Your line includes subcontractors; the industry figures are W-2 payroll only (Census SUSB 2022, 114,842 U.S. firms; your size = firms with $500K&ndash;$999K receipts, 18,459 firms). Part of the gap is classification &mdash; worth a conversation, not a verdict.</p></div><div class="bmk"><div class="bt">Annual revenue per business<span class="bu">$</span></div><div class="rail"><span class="bdot lane0" style="left:41.9%"><em>Your size $703K</em></span><span class="bcn c0" style="left:41.9%"></span><span class="btick" style="left:41.9%"></span><span class="bdot lane1" style="left:54.2%"><em>NY $798K</em></span><span class="bcn c1" style="left:54.2%"></span><span class="btick" style="left:54.2%"></span><span class="bdot lane0" style="left:84.5%"><em>US $1.03M</em></span><span class="bcn c0" style="left:84.5%"></span><span class="btick" style="left:84.5%"></span><span class="bdot me" style="left:25.4%"><i></i><em>You $575K</em></span></div><p class="bn">Your trailing twelve months against the average landscaping business (Census SUSB 2022).</p></div><div class="bmk"><div class="bt">People per business<span class="bu"></span></div><div class="rail"><span class="bdot lane0" style="left:21.7%"><em>WNY 3.8</em></span><span class="bcn c0" style="left:21.7%"></span><span class="btick" style="left:21.7%"></span><span class="bdot lane0" style="left:40.0%"><em>Your size 4.9</em></span><span class="bcn c0" style="left:40.0%"></span><span class="btick" style="left:40.0%"></span><span class="bdot lane0" style="left:70.0%"><em>US 6.7</em></span><span class="bcn c0" style="left:70.0%"></span><span class="btick" style="left:70.0%"></span><span class="bdot me" style="left:58.3%"><i></i><em>You ~6 in season</em></span></div><p class="bn">WNY = Erie + Niagara counties, employees per establishment (Census CBP 2023); size band and U.S. from SUSB 2022.</p></div><div class="bmk ctx"><div class="bt">What landscaping pay runs locally<span class="bu">context &middot; no comparison</span></div><p class="bn" style="margin-top:4px">Average annual pay per employee: <b class="num">$54,745</b> in Erie County (445 establishments) &middot; <b class="num">$69,955</b> in Niagara County (138) &middot; <b class="num">$49,769</b> nationally (Census CBP 2023 / SUSB 2022).</p></div></div>
+</div></section>
+
+</div><!-- /reportPane -->
+
+<div id="roadPane"><div class="wrap">
+  <section class="hero" style="padding-bottom:0">
+    <div class="period">The plan for this report</div>
+    <h1 class="client" style="font-size:22px">Where this goes</h1>
+  </section>
+
+  <div class="phases">
+  <div class="ph now">
+    <span class="tag">Now</span>
+    <h3>The monthly close, delivered like this</h3>
+    <p>Every month: the one-page summary plus this interactive report in your portal &mdash;
+    categorized, reviewed by a person, and reconciled to the bank statement&rsquo;s printed
+    ending balance before it can publish.</p>
+  </div>
+
+  <div class="ph next">
+    <span class="tag">Next</span>
+    <h3>The paperwork does itself</h3>
+    <ul>
+      <li>Bank and card statements read automatically &mdash; no more hand-keying &mdash; with
+      every transaction categorized and queued for a human yes/no</li>
+      <li>Tie-out checks run on rules, not eyeballs: totals, duplicates, and odd amounts
+      flagged the way an auditor would</li>
+      <li>Faster closes, fewer errors, and the accountant&rsquo;s time spent on judgment
+      instead of typing</li>
+    </ul>
+  </div>
+
+  <div class="ph later bench">
+    <span class="tag">Later</span>
+    <h3>How you compare &mdash; real benchmarks, never guesses</h3>
+    <p>A panel on this report showing your numbers against your industry and size:</p>
+    <ul>
+      <li>Payroll, materials, equipment and margin as a share of revenue &mdash; against
+      <b>banker-grade industry data</b> (the same RMA studies your bank uses when it reads
+      your loan application) and IRS &amp; Census industry figures</li>
+      <li>Shown as honest <b>ranges and medians with the source named</b> on every number
+      &mdash; never a single made-up target</li>
+      <li>Your accountant interprets what the comparison means for <i>your</i> business</li>
+    </ul>
+    <p style="margin-top:8px"><b>A first preview is already live on the July close tab.</b></p>
+  </div>
+  </div><!-- /phases -->
+
+  <h2 style="font-size:20px;margin:26px 0 2px">How the month flows</h2>
+  <p class="sub">From the client&rsquo;s paperwork to this report &mdash; and where a person
+  stays in the loop</p>
+  <div class="flowmap">
+    <div class="fstep"><span class="fnum">1</span><div><b>Client documents arrive</b>
+      <p>Bank &amp; card statements land in the portal &mdash; PDFs, as they come.</p></div></div>
+    <div class="fstep auto"><span class="fnum">2</span><div><b>Parse &amp; categorize</b>
+      <p>The software reads every transaction and applies this client&rsquo;s
+      categorization rules.</p><span class="ftag">runs itself</span></div></div>
+    <div class="fstep human"><span class="fnum">3</span><div><b>Review sheet</b>
+      <p>The accountant approves or corrects each category &mdash; minutes, not hours.</p>
+      <span class="ftag">human review</span></div></div>
+    <div class="fstep auto"><span class="fnum">4</span><div><b>Into QuickBooks</b>
+      <p>A clean import file &mdash; QuickBooks stays the books of record.</p>
+      <span class="ftag">runs itself</span></div></div>
+    <div class="fstep human"><span class="fnum">5</span><div><b>Books accepted</b>
+      <p>Final accept in QuickBooks&rsquo; own review screen; the tie-out gate checks
+      totals against the statement.</p><span class="ftag">human review</span></div></div>
+    <div class="fstep auto"><span class="fnum">6</span><div><b>Out of QuickBooks</b>
+      <p>The month&rsquo;s P&amp;L and ledger export &mdash; QuickBooks publishes an API,
+      so this hop can run on schedule, no clicking.</p><span class="ftag">runs itself</span></div></div>
+    <div class="fstep human"><span class="fnum">7</span><div><b>This report, drafted</b>
+      <p>Dashboard + one-pager generate; the accountant gets final cut on the
+      highlights before it reaches the portal.</p><span class="ftag">human review</span></div></div>
+  </div>
+  <p class="sub" style="margin:12px 0 4px">The arrows between systems can run themselves &mdash;
+  QuickBooks has a real API for both the import and the export &mdash; so automation does the
+  ferrying while every judgment stays a person&rsquo;s. Nothing moves to the client without
+  steps 3, 5 and 7.</p>
+
+  <p class="sub" style="margin:16px 0 30px">Every stage keeps the same rule this report was
+  built on: if the numbers don&rsquo;t tie out, nothing publishes.</p>
+</div></div><!-- /roadPane -->
+
+<section class="method"><div class="wrap">
+  <h2>How this report is built</h2>
+  <p>Prepared by Nicastro &amp; Co. from the month&rsquo;s bank activity and your books. Every
+  transaction is categorized, reviewed by a person, and the totals are reconciled against the
+  bank statement&rsquo;s own printed ending balance before this page can be produced &mdash;
+  if they don&rsquo;t match, no report. The interactive version and the one-page summary are
+  delivered together in your client portal.</p>
+  <p style="color:#7a7264">This copy is a demonstration: the company, people, vendors and every
+  number are fictional.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">Sample deliverable &middot; single file &middot; no
+server, no login &mdash; opens anywhere, shared only through the client portal.</div></footer>
+</div>
+
+<script id="D" type="application/json">{"months":["Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 26"],"rev":[63100,61400,55800,48900,38200,30400,27900,26300,34800,52600,64100,64500,70330],"exp":[52900,51200,47700,42800,35600,29800,27100,26900,32900,45300,54200,55100,57440],"revLines":[["Maintenance contracts",38400,"Weekly mowing, beds, seasonal cleanups - 41 properties",37200],["Design-build projects",22750,"Three installs: two patios, one full front-yard redesign",18400],["Irrigation & repair",9180,"Startups, repairs and two new zone installs",8900]],"expCats":[["Payroll & subcontractors",31240,30480],["Materials & plants",9870,11230],["Equipment & repairs",4150,3890],["Fuel",3420,2480],["Vehicle leases",2980,2980],["Insurance",2210,2210],["Marketing",1150,1390],["Merchant fees",1020,940],["Software & office",860,830],["Utilities",540,620]],"mrev":[[33188,33573,30849,25104,20476,16691,16578,12838,18779,27692,34574,37200,38400],[20639,20283,17453,17408,12252,8929,8108,10376,12445,16969,21062,18400,22750],[9273,7544,7498,6388,5472,4780,3214,3086,3576,7940,8464,8900,9180]],"mexp":[[29415,28949,25831,21434,17719,14782,16095,15341,18029,26032,29947,30480,31240],[9036,8103,9467,8446,6253,5562,3711,4646,5118,6082,8669,11230,9870],[3378,4022,3205,2939,3056,2634,1680,1638,2868,3461,4332,3890,4150],[3320,3336,2483,2479,2466,1988,1762,1485,1855,2876,3623,2480,3420],[2707,2165,2087,2567,1828,1700,1399,1428,1604,2307,2392,2980,2980],[1979,1684,1696,2030,1711,1234,832,860,1363,1780,2011,2210,2210],[1012,900,1050,983,888,595,500,529,692,800,1137,1390,1150],[800,732,862,774,648,531,478,447,568,864,893,940,1020],[734,816,589,742,692,466,439,312,480,679,728,830,860],[518,494,429,406,341,308,204,213,321,419,468,620,540]],"txns":[{"d":"07/01","n":"Truck lease - F-350","c":"Vehicle leases","a":-2080.58},{"d":"07/01","n":"Accounting software","c":"Software & office","a":-544.99},{"d":"07/02","n":"Customer payment - Maple St project","c":"Maintenance contracts","a":4362.97},{"d":"07/02","n":"Customer payment - Maple St project","c":"Maintenance contracts","a":3010.47},{"d":"07/06","n":"Payroll taxes","c":"Payroll & subcontractors","a":-4144.13},{"d":"07/06","n":"Scheduling software","c":"Software & office","a":-315.01},{"d":"07/06","n":"Customer payment - Sunset Grill patio","c":"Maintenance contracts","a":2373.07},{"d":"07/07","n":"Workers comp premium","c":"Insurance","a":-1346.73},{"d":"07/07","n":"Customer payment - Village of Fairhaven mowing","c":"Maintenance contracts","a":1595.01},{"d":"07/07","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":5941.8},{"d":"07/09","n":"Crew payroll run","c":"Payroll & subcontractors","a":-2462.51},{"d":"07/09","n":"GreenLeaf Nursery Supply","c":"Materials & plants","a":-1452.2},{"d":"07/09","n":"Customer payment - Elmwood duplexes","c":"Maintenance contracts","a":2017.77},{"d":"07/10","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-1954.47},{"d":"07/10","n":"Mulch Depot","c":"Materials & plants","a":-1100.85},{"d":"07/10","n":"WNY Equipment Rental","c":"Equipment & repairs","a":-1365.54},{"d":"07/11","n":"Customer payment - Sunset Grill patio","c":"Irrigation & repair","a":1793.68},{"d":"07/11","n":"Customer payment - Harborview HOA","c":"Irrigation & repair","a":2329.79},{"d":"07/12","n":"WNY Equipment Rental","c":"Equipment & repairs","a":-1687.5},{"d":"07/12","n":"Customer payment - Harborview HOA","c":"Maintenance contracts","a":3079.05},{"d":"07/13","n":"Customer payment - Harborview HOA","c":"Irrigation & repair","a":4597.31},{"d":"07/13","n":"Customer payment - Ashford residence","c":"Maintenance contracts","a":3492.9},{"d":"07/13","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":2777.34},{"d":"07/14","n":"Mower deck repair - shop","c":"Equipment & repairs","a":-1096.96},{"d":"07/14","n":"Fleet Fuel Co","c":"Fuel","a":-1029.62},{"d":"07/15","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-1464.22},{"d":"07/15","n":"Customer payment - Village of Fairhaven mowing","c":"Irrigation & repair","a":1802.53},{"d":"07/16","n":"Crew payroll run","c":"Payroll & subcontractors","a":-4136.76},{"d":"07/16","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-1876.59},{"d":"07/16","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-1893.74},{"d":"07/16","n":"Mulch Depot","c":"Materials & plants","a":-1269.72},{"d":"07/16","n":"Shop electric","c":"Utilities","a":-334.27},{"d":"07/18","n":"Crew payroll run","c":"Payroll & subcontractors","a":-2291.68},{"d":"07/18","n":"Marina Gas & Go","c":"Fuel","a":-2390.38},{"d":"07/18","n":"Customer payment - Harborview HOA","c":"Irrigation & repair","a":2718.44},{"d":"07/18","n":"Customer payment - Maple St project","c":"Design-build projects","a":3335.58},{"d":"07/19","n":"Local search ads","c":"Marketing","a":-600.92},{"d":"07/21","n":"Card processing fees","c":"Merchant fees","a":-425.26},{"d":"07/21","n":"Customer payment - Sunset Grill patio","c":"Maintenance contracts","a":2439.47},{"d":"07/21","n":"Customer payment - Delta Sports Complex","c":"Maintenance contracts","a":4041.54},{"d":"07/22","n":"Workers comp premium","c":"Insurance","a":-863.27},{"d":"07/23","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-4570.53},{"d":"07/23","n":"Ridgeline Stone & Gravel","c":"Materials & plants","a":-812.68},{"d":"07/23","n":"Customer payment - Ashford residence","c":"Maintenance contracts","a":3064.97},{"d":"07/25","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-2719.38},{"d":"07/25","n":"Card processing fees","c":"Merchant fees","a":-594.74},{"d":"07/25","n":"Customer payment - Birchwood Dental","c":"Maintenance contracts","a":3340.18},{"d":"07/26","n":"Truck lease - Transit","c":"Vehicle leases","a":-899.42},{"d":"07/26","n":"Customer payment - Delta Sports Complex","c":"Maintenance contracts","a":1885.48},{"d":"07/27","n":"Stonework sub - patio job","c":"Payroll & subcontractors","a":-4306.35},{"d":"07/29","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":2242.57},{"d":"07/29","n":"Customer payment - Ashford residence","c":"Maintenance contracts","a":2185.69},{"d":"07/30","n":"Crew payroll run","c":"Payroll & subcontractors","a":-4654.19},{"d":"07/30","n":"Customer payment - Delta Sports Complex","c":"Maintenance contracts","a":2730.7},{"d":"07/30","n":"Customer payment - Rt. 62 plaza","c":"Maintenance contracts","a":3171.69},{"d":"07/31","n":"Local search ads","c":"Marketing","a":-549.08},{"d":"07/31","n":"Shop electric","c":"Utilities","a":-205.73}]}</script>
+<script>
+var D=JSON.parse(document.getElementById('D').textContent);
+(function(){
+  var mb=document.getElementById('minibar');
+  var hero=document.querySelector('.hero');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      mb.classList.toggle('on', !en[0].isIntersecting && !document.body.classList.contains('road'));
+    },{threshold:0}).observe(hero);
+  }
+})();
+(function(){
+  var tr=document.getElementById('tabRep'), td=document.getElementById('tabRoad');
+  function set(road){
+    document.body.classList.toggle('road',road);
+    if(road) document.getElementById('minibar').classList.remove('on');
+    tr.setAttribute('aria-pressed',!road); td.setAttribute('aria-pressed',road);
+    window.scrollTo(0,0);
+  }
+  tr.addEventListener('click',function(){set(false);});
+  td.addEventListener('click',function(){set(true);});
+})();
+function money(v){return '$'+Math.round(Math.abs(v)).toLocaleString('en-US');}
+function money2(v){return (v<0?'-$':'$')+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+function renderCats(host,cats,rev){
+  var tot=0; cats.forEach(function(c){tot+=c[1];});
+  var mx=cats[0][1];
+  var h='';
+  cats.forEach(function(c,i){
+    h+='<div class="row" data-i="'+i+'" tabindex="0" role="button" aria-expanded="false">'+
+      '<div class="rt"><span class="car">&rsaquo;</span><span class="nm">'+esc(c[0])+'</span>'+
+      '<span class="amt num">'+money(c[1])+'</span><span class="pct num">'+
+      (100*c[1]/tot).toFixed(0)+'%</span></div>'+
+      '<div class="bar"><i style="width:0" data-w="'+(100*c[1]/mx).toFixed(1)+'%"></i></div>'+
+      '<div class="rx"></div></div>';
+  });
+  host.innerHTML=h;
+  host.addEventListener('click',function(e){
+    var row=e.target.closest('.row'); if(!row) return;
+    var open=row.classList.toggle('open');
+    row.setAttribute('aria-expanded',open);
+    if(!open) return;
+    var c=cats[+row.getAttribute('data-i')];
+    var tx=D.txns.filter(function(t){return t.c===c[0];});
+    var hh='';
+    if(c[2]&&rev) hh+='<p class="rnote">'+esc(c[2])+'</p>';
+    tx.forEach(function(t){
+      hh+='<div class="tx"><span class="d num">'+t.d+'</span><span class="n">'+esc(t.n)+
+        '</span><span class="a num">'+money2(t.a)+'</span></div>';
+    });
+    hh+='<p class="rnote">'+tx.length+' transactions &middot; sums to '+money(c[1])+' exactly.</p>';
+    row.querySelector('.rx').innerHTML=hh;
+  });
+}
+renderCats(document.getElementById('revList'),D.revLines,true);
+renderCats(document.getElementById('expList'),D.expCats.map(function(c){return [c[0],c[1]];}),false);
+
+/* trend with touch scrub */
+(function(){
+  var host=document.getElementById('trend');
+  var W=720,H=230,ml=46,mr=12,mt=12,mb=26,fs=11;
+  var mx=Math.max.apply(null,D.rev)*1.1;
+  function x(i){return ml+(W-ml-mr)*(i/(D.months.length-1));}
+  function y(v){return mt+(H-mt-mb)*(1-v/mx);}
+  var p=[];
+  for(var t=0;t<=4;t++){var gv=mx/4*t;
+    p.push('<line class="gl" x1="'+ml+'" y1="'+y(gv).toFixed(1)+'" x2="'+(W-mr)+'" y2="'+y(gv).toFixed(1)+'"/>');
+    p.push('<text class="ax" x="'+(ml-7)+'" y="'+(y(gv)+fs/3).toFixed(1)+'" text-anchor="end" font-size="'+fs+'">$'+Math.round(gv/1000)+'K</text>');}
+  D.months.forEach(function(m,i){ if(i%3===0||i===D.months.length-1)
+    p.push('<text class="ax" x="'+x(i).toFixed(1)+'" y="'+(H-mb+fs+4)+'" text-anchor="middle" font-size="'+fs+'">'+m+'</text>');});
+  function path(a){return a.map(function(v,i){return (i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1);}).join(' ');}
+  /* the ribbon between the curves IS the profit */
+  var ribbon=path(D.rev);
+  for(var ri=D.exp.length-1;ri>=0;ri--) ribbon+=' L'+x(ri).toFixed(1)+' '+y(D.exp[ri]).toFixed(1);
+  p.push('<path d="'+ribbon+' Z" fill="var(--ok)" opacity=".14"/>');
+  p.push('<path class="ln" d="'+path(D.rev)+'" stroke="var(--rev)"/>');
+  p.push('<path class="ln" d="'+path(D.exp)+'" stroke="var(--exp)"/>');
+  p.push('<g class="xh" style="opacity:0"><line stroke="var(--rule-strong)" stroke-dasharray="3 3" y1="'+mt+'" y2="'+(H-mb)+'"/>'+
+    '<circle class="c1" r="4" fill="var(--rev)"/><circle class="c2" r="4" fill="var(--exp)"/></g>');
+  p.push('<rect class="hit" x="'+ml+'" y="'+mt+'" width="'+(W-ml-mr)+'" height="'+(H-mt-mb)+'" fill="transparent"/>');
+  host.innerHTML='<div class="chartwrap"><svg viewBox="0 0 '+W+' '+H+'">'+p.join('')+'</svg><div class="tip"></div></div>';
+  var svg=host.querySelector('svg'),tip=host.querySelector('.tip'),wrap=host.querySelector('.chartwrap'),
+      xh=host.querySelector('.xh'),xl=xh.querySelector('line'),
+      c1=xh.querySelector('.c1'),c2=xh.querySelector('.c2'),hit=host.querySelector('.hit');
+  function move(ev){
+    var r=svg.getBoundingClientRect();
+    var i=Math.round(((ev.clientX-r.left)/r.width*W-ml)/((W-ml-mr)/(D.months.length-1)));
+    i=Math.max(0,Math.min(D.months.length-1,i));
+    xh.style.opacity=1;
+    xl.setAttribute('x1',x(i));xl.setAttribute('x2',x(i));
+    c1.setAttribute('cx',x(i));c1.setAttribute('cy',y(D.rev[i]));
+    c2.setAttribute('cx',x(i));c2.setAttribute('cy',y(D.exp[i]));
+    tip.innerHTML='<div class="ty">'+D.months[i]+'</div>'+
+      '<div class="tl"><span>Revenue</span><b class="num">'+money(D.rev[i])+'</b></div>'+
+      '<div class="tl"><span>Expenses</span><b class="num">'+money(D.exp[i])+'</b></div>'+
+      '<div class="tl"><span>Net</span><b class="num">'+money(D.rev[i]-D.exp[i])+'</b></div>';
+    tip.style.opacity=1;
+    var wx=x(i)/W*wrap.clientWidth;
+    tip.style.left=Math.min(Math.max(wx-tip.offsetWidth/2,0),wrap.clientWidth-tip.offsetWidth)+'px';
+  }
+  hit.addEventListener('mousemove',move);
+  hit.addEventListener('mouseleave',function(){tip.style.opacity=0;xh.style.opacity=0;});
+  hit.style.touchAction='none';
+  hit.addEventListener('touchstart',function(ev){var t=ev.touches[0];if(t){move(t);ev.preventDefault();}},{passive:false});
+  hit.addEventListener('touchmove',function(ev){var t=ev.touches[0];if(t){move(t);ev.preventDefault();}},{passive:false});
+  hit.addEventListener('touchend',function(){tip.style.opacity=0;xh.style.opacity=0;});
+})();
+
+/* movers - MoM / YoY / QoQ variance with driver commentary */
+(function(){
+  var Q1=[6,7,8], Q2=[9,10,11];
+  function sum(row,idx){var t=0;idx.forEach(function(i){t+=row[i];});return t;}
+  var BAS={
+    mom:{label:'vs June', cl:'Jul \u201926', pl:'Jun \u201926',
+         cur:function(r){return r[12];}, base:function(r){return r[11];}},
+    yoy:{label:'vs July last year', cl:'Jul \u201926', pl:'Jul \u201925',
+         cur:function(r){return r[12];}, base:function(r){return r[0];}},
+    qoq:{label:'Q2 vs Q1', cl:'Q2 \u201926', pl:'Q1 \u201926',
+         cur:function(r){return sum(r,Q2);}, base:function(r){return sum(r,Q1);}}
+  };
+  var basis='mom';
+  function buildRows(){
+    var B=BAS[basis], rows=[];
+    D.revLines.forEach(function(l,i){
+      var c=B.cur(D.mrev[i]), p=B.base(D.mrev[i]);
+      rows.push({n:l[0],kind:'rev',c:c,p:p,d:c-p});});
+    D.expCats.forEach(function(cc,i){
+      var c=B.cur(D.mexp[i]), p=B.base(D.mexp[i]);
+      rows.push({n:cc[0],kind:'exp',c:c,p:p,d:c-p});});
+    rows.sort(function(a,b){return Math.abs(b.d)-Math.abs(a.d);});
+    return rows;
+  }
+  function commentary(){
+    var B=BAS[basis];
+    var rT=0,rB=0,eT=0,eB=0;
+    D.mrev.forEach(function(r){rT+=B.cur(r);rB+=B.base(r);});
+    D.mexp.forEach(function(r){eT+=B.cur(r);eB+=B.base(r);});
+    var dr=rT-rB, de=eT-eB, dn=dr-de;
+    var rows=buildRows(), tops=rows.slice(0,2).map(function(r){
+      return r.n+' ('+(r.d>0?'+':'\u2212')+money(r.d)+')';});
+    return 'Variance '+B.label+': revenue '+(dr>=0?'+':'\u2212')+money(dr)+
+      ', expenses '+(de>=0?'+':'\u2212')+money(de)+' \u2192 net '+
+      (dn>=0?'+':'\u2212')+money(dn)+'. Top drivers: '+tops.join(', ')+'.';
+  }
+  var rows=buildRows();
+  var host=document.getElementById('movers');
+  var chips=document.getElementById('mvChips');
+  var bch=document.getElementById('mvBasis');
+  bch.addEventListener('click',function(e){
+    var b2=e.target.closest('[data-b]'); if(!b2) return;
+    basis=b2.getAttribute('data-b');
+    bch.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b2);});
+    document.getElementById('mvTitle').textContent=
+      basis==='mom'?'What moved vs June':(basis==='yoy'?'What moved vs July \u201925':'What moved, Q2 vs Q1');
+    rows=buildRows();
+    document.getElementById('mvComm').textContent=commentary();
+    var f=document.querySelector('#mvChips [aria-pressed="true"]').getAttribute('data-f');
+    paint(f,false);
+  });
+  document.getElementById('mvComm').textContent=commentary();
+  function vRow(r,mx){
+    var up=r.d>0, good=r.kind==='rev'? up : !up;
+    var w=(100*Math.abs(r.d)/mx).toFixed(0);
+    var pct=r.p? ((up?'+':'\u2212')+Math.abs(100*r.d/r.p).toFixed(1)+'%') : (r.d? 'new':'\u2014');
+    return '<div class="vt-r">'+
+      '<span class="vt-n">'+esc(r.n)+(r.kind==='rev'?' <em>revenue</em>':'')+'</span>'+
+      '<span class="vt-c num" data-l="__CL__">'+money(r.c)+'</span>'+
+      '<span class="vt-p num" data-l="__PL__">'+money(r.p)+'</span>'+
+      '<span class="vt-d" data-l="Change"><i class="vb2" style="width:'+
+        Math.max(2,w*0.9)+'%;background:var(--'+(good?'ok':'warn')+')"></i>'+
+        '<b class="num '+(good?'dn':'up')+'">'+
+        (r.d===0?'\u2014':((up?'+':'\u2212')+money(r.d)))+'</b></span>'+
+      '<span class="vt-pc num '+(good?'dn':'up')+'">'+(r.d===0?'':pct)+'</span></div>';
+  }
+  function vSub(label,c,pM,d,kind,net){
+    var up=d>0, good=net? up : (kind==='rev'? up : !up);
+    return '<div class="vt-r sub'+(net?' net':'')+'">'+
+      '<span class="vt-n">'+label+'</span>'+
+      '<span class="vt-c num">'+money(c)+'</span>'+
+      '<span class="vt-p num">'+money(pM)+'</span>'+
+      '<span class="vt-d"><b class="num '+(good?'dn':'up')+'">'+
+        (d===0?'\u2014':((up?'+':'\u2212')+money(d)))+'</b></span>'+
+      '<span class="vt-pc num '+(good?'dn':'up')+'">'+
+        (pM? ((up?'+':'\u2212')+Math.abs(100*d/pM).toFixed(1)+'%'):'')+'</span></div>';
+  }
+  function paint(f,animate){
+    var B=BAS[basis];
+    var all=buildRows();
+    var mx=Math.max.apply(null,all.map(function(r){return Math.abs(r.d);}))||1;
+    var h='<div class="vt-h"><span class="vt-n"></span>'+
+      '<span class="vt-c">'+B.cl+'</span><span class="vt-p">'+B.pl+'</span>'+
+      '<span class="vt-d">Change</span><span class="vt-pc">\u0394%</span></div>';
+    function grp(kind,label){
+      var rs=all.filter(function(r){return r.kind===kind;});
+      h+=rs.map(function(r){return vRow(r,mx);}).join('');
+      var c=0,pM=0; rs.forEach(function(r){c+=r.c;pM+=r.p;});
+      h+=vSub(label,c,pM,c-pM,kind,false);
+      return {c:c,p:pM};
+    }
+    if(f==='all'||f==='rev') var R=grp('rev','Revenue subtotal');
+    if(f==='all'||f==='exp') var E=grp('exp','Expenses subtotal');
+    if(f==='all'){
+      h+=vSub('NET',R.c-E.c,R.p-E.p,(R.c-E.c)-(R.p-E.p),'rev',true);
+    }
+    host.innerHTML=h.split('__CL__').join(B.cl).split('__PL__').join(B.pl);
+  }
+  chips.addEventListener('click',function(e){
+    var b2=e.target.closest('[data-f]'); if(!b2) return;
+    chips.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b2);});
+    paint(b2.getAttribute('data-f'),false);
+  });
+  window.__paintMovers=function(){paint('all',true);};
+})();
+
+/* bars fill as they enter view; hero numbers roll up */
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function grow(scope){
+  (scope||document).querySelectorAll('[data-w]').forEach(function(el){
+    if(RM){el.style.width=el.getAttribute('data-w');return;}
+    io.observe(el);
+  });
+}
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(!en.isIntersecting) return;
+    en.target.style.width=en.target.getAttribute('data-w');
+    io.unobserve(en.target);
+  });
+},{threshold:.25});
+window.__paintMovers();
+grow(document);
+(function(){
+  if(RM) return;
+  document.querySelectorAll('.b3 .v').forEach(function(el){
+    var txt=el.textContent, target=+txt.replace(/[^0-9]/g,''), pre=txt.replace(/[0-9,].*$/,'');
+    var t0=null;
+    function step(ts){
+      if(!t0)t0=ts;
+      var k=Math.min(1,(ts-t0)/850), e=1-Math.pow(1-k,3);
+      el.textContent=pre+Math.round(target*e).toLocaleString('en-US');
+      if(k<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+})();
+</script>
+</body></html>
