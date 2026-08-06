@@ -2042,6 +2042,19 @@
       color: var(--paper);
     }
 
+    .label-line { display: block; font: inherit; }
+    .field .opt { font-style: normal; font-weight: 400; opacity: 0.55; font-size: 0.82em; margin-left: 0.35rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.55rem; }
+    .chip { position: relative; cursor: pointer; }
+    .chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .chip span {
+      display: inline-block; padding: 0.5rem 0.85rem; border: 1px solid rgba(16, 42, 67, 0.35);
+      border-radius: 999px; font-size: 0.9rem; line-height: 1; user-select: none;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .chip input:checked + span { background: #102a43; border-color: #102a43; color: #f7f1e3; }
+    .chip input:focus-visible + span { outline: 2px solid #c0392b; outline-offset: 2px; }
+
     .mobile-contact {
       position: fixed;
       right: 0.8rem;
@@ -3705,8 +3718,8 @@
 
         <form class="contact-form" action="mailto:admin@nicacct.com" method="POST" enctype="text/plain" data-contact-form data-reveal>
           <div class="form-heading">
-            <h3>Request a consultation</h3>
-            <span>Usually starts by phone or email</span>
+            <h3>Prefer we call you?</h3>
+            <span>Thirty seconds &mdash; tell us what you need and the office calls you</span>
           </div>
 
           <div class="form-grid">
@@ -3715,26 +3728,42 @@
               <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Smith" />
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required placeholder="jane@example.com" />
+              <label for="phone">Phone &mdash; we&rsquo;ll call this number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(716) 000-0000" />
             </div>
             <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(716) 000-0000" />
+              <label for="email">Email <em class="opt">optional</em></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" />
             </div>
-            <div class="field field--full">
-              <label for="service">What can we help with?</label>
-              <select id="service" name="service">
-                <option value="Tax preparation">Tax preparation</option>
-                <option value="Bookkeeping">Bookkeeping</option>
-                <option value="Payroll">Payroll</option>
-                <option value="Advisory">Advisory</option>
-                <option value="Not sure yet">Not sure yet</option>
+            <div class="field">
+              <label for="client_type">This is for</label>
+              <select id="client_type" name="client_type">
+                <option value="An individual / family">An individual / family</option>
+                <option value="A business">A business</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="call_window">Best time to call</label>
+              <select id="call_window" name="call_window">
+                <option value="Anytime">Anytime</option>
+                <option value="Morning (9-12)">Morning (9&ndash;12)</option>
+                <option value="Lunch hour (12-1)">Lunch hour (12&ndash;1)</option>
+                <option value="Afternoon (1-5)">Afternoon (1&ndash;5)</option>
               </select>
             </div>
             <div class="field field--full">
-              <label for="message">A short note</label>
-              <textarea id="message" name="message" required placeholder="Tell us what you need help with."></textarea>
+              <span class="label-line">What do you need? <em class="opt">tick any</em></span>
+              <div class="chips" id="needChips">
+                <label class="chip"><input type="checkbox" name="needs" value="Tax preparation" /><span>Tax preparation</span></label>
+                <label class="chip"><input type="checkbox" name="needs" value="Bookkeeping" /><span>Bookkeeping</span></label>
+                <label class="chip"><input type="checkbox" name="needs" value="Payroll" /><span>Payroll</span></label>
+                <label class="chip"><input type="checkbox" name="needs" value="Advisory" /><span>Advisory</span></label>
+                <label class="chip"><input type="checkbox" name="needs" value="Not sure yet" /><span>Not sure yet</span></label>
+              </div>
+            </div>
+            <div class="field field--full">
+              <label for="message">Anything else? <em class="opt">optional</em></label>
+              <textarea id="message" name="message" placeholder="A sentence is plenty."></textarea>
             </div>
           </div>
 
@@ -4345,7 +4374,7 @@
       var formNote = form.querySelector(".form-note");
 
       if (FORM_ENDPOINT) {
-        submitLabel.textContent = "Send request";
+        submitLabel.textContent = "Send \u2014 the office calls you";
         formNote.textContent = "Sent directly to the office. Please do not include Social Security numbers, tax documents, or other sensitive information — a secure handoff can be arranged.";
       }
 
@@ -4360,7 +4389,12 @@
         var name = document.getElementById("name").value.trim();
         var email = document.getElementById("email").value.trim();
         var phone = document.getElementById("phone").value.trim();
-        var service = document.getElementById("service").value;
+        var clientType = document.getElementById("client_type").value;
+        var callWindow = document.getElementById("call_window").value;
+        var needs = Array.prototype.map.call(
+          document.querySelectorAll('#needChips input:checked'),
+          function (c) { return c.value; }
+        ).join(", ") || "Not sure yet";
         var message = document.getElementById("message").value.trim();
 
         if (FORM_ENDPOINT) {
@@ -4368,24 +4402,27 @@
           fetch(FORM_ENDPOINT, {
             method: "POST",
             headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ name: name, email: email, phone: phone, service: service, message: message })
+            body: JSON.stringify({ name: name, email: email, phone: phone, client_type: clientType,
+              needs: needs, call_window: callWindow, message: message })
           }).then(function (response) {
             if (!response.ok) throw new Error("send-failed");
             form.reset();
-            status.textContent = "Request sent. The office will follow up within one business day.";
+            status.textContent = "Got it \u2014 the office will call you. Thanks!";
           }).catch(function () {
             status.textContent = "Could not send right now — please call (716) 264-4438 or email admin@nicacct.com.";
           });
           return;
         }
 
-        var subject = encodeURIComponent("Website consultation request — " + service);
+        var subject = encodeURIComponent("Call-back request — " + name);
         var body = encodeURIComponent(
-          "Name: " + name + "\n" +
-          "Email: " + email + "\n" +
-          "Phone: " + (phone || "Not provided") + "\n" +
-          "Service: " + service + "\n\n" +
-          "Message:\n" + message
+          "name: " + name + "\n" +
+          "phone: " + phone + "\n" +
+          "email: " + (email || "Not provided") + "\n" +
+          "client_type: " + clientType + "\n" +
+          "needs: " + needs + "\n" +
+          "call_window: " + callWindow + "\n" +
+          "message: " + (message || "-") + "\n"
         );
 
         status.textContent = "Opening your email app…";
